@@ -8,6 +8,34 @@ let Attack; //Variable to hold Attack Points
 let Defense; //Variable to hold Defense Points
 let Speed; //Variable to hold Speed Points
 
+//Enemy stats
+let slimeHP; //Variable to hold Health Points of the enemy type slime
+let slimeMP; //Variable to hold Mana Points of the enemy type slime
+let slimeAttack; //Variable to hold Attack Points of the enemy type slime
+let slimeDefense; //Variable to hold Defense Points of the enemy type slime
+let slimeSpeed; //Variable to hold Speed Points of the enemy type slime
+
+let greatSlimeHP; //Variable to hold Health Points of the enemy type great slime
+let greatSlimeMP; //Variable to hold Mana Points of the enemy type great slime
+let greatSlimeAttack; //Variable to hold Attack Points of the enemy type great slime
+let greatSlimeDefense; //Variable to hold Defense Points of the enemy type great slime
+let greatSlimeSpeed; //Variable to hold Speed Points of the enemy type great slime
+
+let direWolfHP; //Variable to hold Health Points of the enemy type dire wolf
+let direWolfMP; //Variable to hold Mana Points of the enemy type dire wolf
+let direWolfAttack; //Variable to hold Attack Points of the enemy type dire wolf
+let direWolfDefense; //Variable to hold Defense Points of the enemy type dire wolf
+let direWolfSpeed; //Variable to hold Speed Points of the enemy type dire wolf
+
+let darkElfHP; //Variable to hold Health Points of the enemy type dark elf
+let darkElfMP; //Variable to hold Mana Points of the enemy type dark elf
+let darkElfAttack; //Variable to hold Attack Points of the enemy type dark elf
+let darkElfDefense; //Variable to hold Defense Points of the enemy type dark elf
+let darkElfSpeed; //Variable to hold Speed Points of the enemy type dark elf
+
+
+
+
 //Items
 let weaponName = "";
 let weaponStats;
@@ -307,4 +335,42 @@ function YellowAmulets() {
         armorStats = 10;
     }
 }
+
+//enemy stats
+function setSlime() {
+    slimeHP = 5;
+    slimeMP = 10;
+    slimeAttack = 5;
+    slimeDefense = 8;
+    slimeSpeed = 5;
+    
+}
+
+function setGreatSlime() {
+    greatSlimeHP = 10;
+    greatSlimeMP = 10;
+    greatSlimeAttack = 8;
+    greatSlimeDefense = 10;
+    greatSlimeSpeed = 4;
+    
+}
+
+function setDireWolf() {
+    direWolfHP = 8;
+    direWolfMP = 5;
+    direWolfAttack = 10;
+    direWolfDefense = 5;
+    direWolfSpeed = 10;
+    
+}
+
+function setDarkElf() {
+    darkElfHP = 8;
+    darkElfMP = 10;
+    darkElfAttack = 5;
+    darkElfDefense = 5;
+    darkElfSpeed = 8;
+    
+}
+
 
