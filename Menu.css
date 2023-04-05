@@ -3,7 +3,22 @@
     margin-top: 5px;
     margin-bottom: 5px;
     margin-top: 5px;
-    width: 30%;
+    width: 100%;
     padding: 0 20%;
+    text-align: center;
+}
+
+#treeImage {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+
+#container {
+    background-color: blue;
+}
+
+h1 {
     text-align: center;
 }
