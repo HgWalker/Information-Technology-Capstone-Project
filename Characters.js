@@ -8,13 +8,37 @@ let Attack; //Variable to hold Attack Points
 let Defense; //Variable to hold Defense Points
 let Speed; //Variable to hold Speed Points
 
-//Items
+//Equipment
 let weaponName = "";
 let weaponStats;
 let armorName = "";
 let armorStats;
 let amuletName = "";
 let amuletStats;
+
+//Equipment status identfiers
+let woodenSword = 0;
+let ironSword = 0;
+let steelSword = 0;
+let royalSword = 0;
+let worldSword = 0;
+
+let basicStaff = 0;
+let enchantedStaff = 0;
+let aquamarineStaff = 0;
+let royalStaff = 0;
+let worldStaff = 0;
+
+let handAxe = 0;
+let combatAxe = 0;
+let greatAxe = 0;
+let royalAxe = 0;
+let worldAxe = 0;
+
+//Menu arrays
+const currentEquipmentStatus = [woodenSword, ironSword, royalSword, worldSword, basicStaff, enchantedStaff, aquamarineStaff, 
+    royalStaff, worldStaff, handAxe, combatAxe, greatAxe, royalAxe, worldAxe];
+const currentItemsStatus = [];
 
 
 //Functions
@@ -309,5 +333,12 @@ function YellowAmulets() {
 }
 
 
-
+//character menu
+function addObject {
+    for(let i = 0; i < currentEquipmentStatus.length; i++) {
+        if(currentEquipmentStatus[i] === 1) {
+            
+        }
+    }
+}
 
