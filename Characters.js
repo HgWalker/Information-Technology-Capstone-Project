@@ -35,9 +35,51 @@ let greatAxe = 0;
 let royalAxe = 0;
 let worldAxe = 0;
 
+//armor status
+let goldMail = 0;
+let copperMail = 0;
+let ironMail = 0;
+let mythrilMail = 0;
+let worldMail = 0;
+
+let silkRobe = 0;
+let leatherRobe = 0;
+let enchantedRobe = 0;
+let mythrilRobe = 0;
+let worldRobe = 0;
+
+let stonePlate = 0;
+let bronzePlate = 0;
+let steelPlate = 0;
+let mythrilPlate = 0;
+let worldPlate = 0;
+
+//amulet status
+let redAgateAmulet = 0;
+let garnetAmulet = 0;
+let rubyAmulet = 0;
+let redDiamondAmulet = 0;
+let redWorldAmulet = 0;
+
+let azuriteAmulet = 0;
+let lapisLazuliAmulet = 0;
+let blueSapphireAmulet = 0;
+let blueDiamondAmulet = 0;
+let blueWorldAmulet = 0;
+
+let yellowTopazAmulet = 0;
+let citrineAmulet = 0;
+let amberAmulet = 0;
+let yellowDiamondAmulet = 0;
+let yellowWorldAmulet = 0;
+
 //Menu arrays
-const currentEquipmentStatus = [woodenSword, ironSword, royalSword, worldSword, basicStaff, enchantedStaff, aquamarineStaff, 
-    royalStaff, worldStaff, handAxe, combatAxe, greatAxe, royalAxe, worldAxe];
+const currentEquipmentStatus = [woodenSword, ironSword, royalSword, worldSword, basicStaff, enchantedStaff, 
+    aquamarineStaff, royalStaff, worldStaff, handAxe, combatAxe, greatAxe, royalAxe, worldAxe, goldMail, copperMail, 
+    ironMail, mythrilMail, worldMail, silkRobe, LeatherRobe, enchantedRobe, mythrilRobe, worldRobe, stonePlate, 
+    bronzePlate, steelPlate, mythrilPlate, worldPlate, redAgateAmulet, garnetAmulet, rubyAmulet, redDiamondAmulet,
+    redWorldAmulet, azuriteAmulet, lapisLazuliAmulet, blueSapphireAmulet, blueDiamondAmulet, blueWorldAmulet,
+    yellowTopazAmulet, citrineAmulet, amberAmulet, yellowDiamondAmulet, yellowWorldAmulet];
 const currentItemsStatus = [];
 
 
@@ -217,7 +259,7 @@ function Robes() {
     }
 
     //World
-    if(armorName === "World Mail") {
+    if(armorName === "World Robe") {
         armorStats = 5;
     }
 }
@@ -253,82 +295,82 @@ function Plate() {
 //amulets
 function RedAmulets() {
     //Agate
-    if(armorName === "Red Agate Amulet") {
-        armorStats = 1;
+    if(amuletName === "Red Agate Amulet") {
+        amuletStats = 1;
     }
 
     //Garnet
-    if(armorName === "Garnet Amulet") {
-        armorStats = 2;
+    if(amuletName === "Garnet Amulet") {
+        amuletStats = 2;
     }
 
     //Ruby
-    if(armorName === "Ruby Amulet") {
-        armorStats = 3;
+    if(amuletName === "Ruby Amulet") {
+        amuletStats = 3;
     }
 
     //Red Diamond
-    if(armorName === "Red Diamond Amulet") {
-        armorStats = 4;
+    if(amuletName === "Red Diamond Amulet") {
+        amuletStats = 4;
     }
 
     //World
-    if(armorName === "Red World Amulet") {
-        armorStats = 5;
+    if(amuletName === "Red World Amulet") {
+        amuletStats = 5;
     }
 }
 
 function BlueAmulets() {
     //Azurite
-    if(armorName === "Azurite Amulet") {
-        armorStats = 3;
+    if(amuletName === "Azurite Amulet") {
+        amuletStats = 3;
     }
 
     //Lapis Lazuli
-    if(armorName === "Lapis Lazuli Amulet") {
-        armorStats = 6;
+    if(amuletName === "Lapis Lazuli Amulet") {
+        amuletStats = 6;
     }
 
     //Blue Sapphire
-    if(armorName === "Blue Sapphire Amulet") {
-        armorStats = 9;
+    if(amuletName === "Blue Sapphire Amulet") {
+        amuletStats = 9;
     }
 
     //Blue Diamond
-    if(armorName === "Blue Diamond Amulet") {
-        armorStats = 12;
+    if(amuletName === "Blue Diamond Amulet") {
+        amuletStats = 12;
     }
 
     //World
-    if(armorName === "Blue World Amulet") {
-        armorStats = 15;
+    if(amuletName === "Blue World Amulet") {
+        amuletStats = 15;
     }
 }
 
 function YellowAmulets() {
     //Agate
-    if(armorName === "Yellow Topaz Amulet") {
-        armorStats = 2;
+    if(amuletName === "Yellow Topaz Amulet") {
+        amuletStats = 2;
     }
 
     //Garnet
-    if(armorName === "Citrine Amulet") {
-        armorStats = 4;
+    if(amuletName === "Citrine Amulet") {
+        amuletStats = 4;
     }
 
     //Ruby
-    if(armorName === "Amber Amulet") {
-        armorStats = 6;
+    if(amuletName === "Amber Amulet") {
+        amuletStats = 6;
     }
 
     //Yellow Diamond
-    if(armorName === "Yellow Diamond Amulet") {
-        armorStats = 8;
+    if(amuletName === "Yellow Diamond Amulet") {
+        amuletStats = 8;
     }
 
     //World
-    if(armorName === "Yellow World Amulet") {
-        armorStats = 10;
+    if(amuletName === "Yellow World Amulet") {
+        amuletStats = 10;
     }
 }
 
@@ -337,7 +379,7 @@ function YellowAmulets() {
 function addObject {
     for(let i = 0; i < currentEquipmentStatus.length; i++) {
         if(currentEquipmentStatus[i] === 1) {
-            
+
         }
     }
 }
