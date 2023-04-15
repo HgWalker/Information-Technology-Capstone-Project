@@ -74,7 +74,7 @@ let yellowDiamondAmulet = 0;
 let yellowWorldAmulet = 0;
 
 //Menu arrays
-const currentEquipmentStatus = [woodenSword, ironSword, royalSword, worldSword, basicStaff, enchantedStaff, 
+const currentEquipmentStatus = [woodenSword, ironSword, steelSword, royalSword, worldSword, basicStaff, enchantedStaff, 
     aquamarineStaff, royalStaff, worldStaff, handAxe, combatAxe, greatAxe, royalAxe, worldAxe, goldMail, copperMail, 
     ironMail, mythrilMail, worldMail, silkRobe, LeatherRobe, enchantedRobe, mythrilRobe, worldRobe, stonePlate, 
     bronzePlate, steelPlate, mythrilPlate, worldPlate, redAgateAmulet, garnetAmulet, rubyAmulet, redDiamondAmulet,
@@ -84,6 +84,87 @@ const currentItemsStatus = [];
 
 
 //Functions
+function load(_playerCharacter, _HP, _MP, _Attack, _Defense, _Speed, _woodenSword, _ironSword, _steelSword, _royalSword, 
+    _worldSword, _basicStaff, _enchantedStaff, _aquamarineStaff, _royalStaff, _worldStaff, _handAxe, _combatAxe, _greatAxe,
+    _royalAxe, _worldAxe, _goldMail, _copperMail, _ironMail, _mythrilMail, _worldMail, _silkRobe, _LeatherRobe, _enchantedRobe, 
+    _mythrilRobe, _worldRobe, _stonePlate, _bronzePlate, _steelPlate, _mythrilPlate, _worldPlate, _redAgateAmulet, _garnetAmulet, 
+    _rubyAmulet, _redDiamondAmulet, _redWorldAmulet, _azuriteAmulet, _lapisLazuliAmulet, _blueSapphireAmulet, _blueDiamondAmulet, 
+    _blueWorldAmulet, _yellowTopazAmulet, _citrineAmulet, _amberAmulet, _yellowDiamondAmulet, _yellowWorldAmulet) {
+    
+    //character
+    playerCharacter = isNaN(_playerCharacter) ? 0 : _playerCharacter;
+    HP = isNaN(_HP) ? 0 : _HP;
+    MP = isNaN(_MP) ? 0 : _MP;
+    Attack = isNaN(_Attack) ? 0 : _Attack;
+    Defense = isNaN(_Defense) ? 0 : _Defense;
+    Speed = isNaN(_Speed) ? 0 : _Speed;
+
+    //weapons
+    woodenSword = isNaN(_woodenSword) ? 0 : _woodenSword;
+    ironSword = isNaN(_ironSword) ? 0 : _ironSword;
+    steelSword = isNaN(_steelSword) ? 0 : _steelSword;
+    royalSword = isNaN(_royalSword) ? 0 : _royalSword;
+    worldSword = isNaN(_worldSword) ? 0 : _worldSword;
+
+    basicStaff = isNaN(_basicStaff) ? 0 : _basicStaff;
+    enchantedStaff = isNaN(_enchantedStaff) ? 0 : _enchantedStaff;
+    aquamarineStaff = isNaN(_aquamarineStaff) ? 0 : _aquamarineStaff;
+    royalStaff = isNaN(_royalStaff) ? 0 : _royalStaff;
+    worldStaff = isNaN(_worldStaff) ? 0 : _worldStaff;
+
+    handAxe = isNaN(_handAxe) ? 0 : _handAxe;
+    combatAxe = isNaN(_combatAxe) ? 0 : _combatAxe;
+    greatAxe = isNaN(_greatAxe) ? 0 : _greatAxe;
+    royalAxe = isNaN(_royalAxe) ? 0 : _royalAxe;
+    worldAxe = isNaN(_worldAxe) ? 0 : _worldAxe;
+
+    //armors
+    goldMail = isNaN(_copperMail) ? 0 : _copperMail;
+    copperMail = isNaN(_copperMail) ? 0 : _copperMail;
+    ironMail = isNaN(_ironMail) ? 0 : _ironMail;
+    mythrilMail = isNaN(_mythrilMail) ? 0 : _mythrilMail;
+    worldMail = isNaN(_worldMail) ? 0 : _worldMail;
+
+    silkRobe = isNaN(_silkRobe) ? 0 : _silkRobe;
+    leatherRobe = isNaN(_LeatherRobe) ? 0 : _LeatherRobe;
+    enchantedRobe = isNaN(_enchantedRobe) ? 0 : _enchantedRobe;
+    mythrilRobe = isNaN(_mythrilRobe) ? 0 : _mythrilRobe;
+    worldRobe = isNaN(_worldRobe) ? 0 : _worldRobe;
+
+    stonePlate = isNaN(_stonePlate) ? 0 : _stonePlate;
+    bronzePlate = isNaN(_bronzePlate) ? 0 : _bronzePlate;
+    steelPlate = isNaN(_steelPlate) ? 0 : _steelPlate;
+    mythrilPlate = isNaN(_mythrilPlate) ? 0 : _mythrilPlate;
+    worldAxe = isNaN(_worldAxe) ? 0 : _worldAxe;
+
+    //amulets
+    redAgateAmulet = isNaN(_redAgateAmulet) ? 0 : _redAgateAmulet;
+    garnetAmulet = isNaN(_garnetAmulet) ? 0 : _garnetAmulet;
+    rubyAmulet = isNaN(_rubyAmulet) ? 0 : _rubyAmulet;
+    redDiamondAmulet = isNaN(_redDiamondAmulet) ? 0 : _redDiamondAmulet;
+    redWorldAmulet = isNaN(_redWorldAmulet) ? 0 : _redWorldAmulet;
+
+    azuriteAmulet = isNaN(_azuriteAmulet) ? 0 : _azuriteAmulet;
+    lapisLazuliAmulet = isNaN(_lapisLazuliAmulet) ? 0 : _lapisLazuliAmulet;
+    blueSapphireAmulet = isNaN(_blueSapphireAmulet) ? 0 : _blueSapphireAmulet;
+    blueDiamondAmulet = isNaN(_blueDiamondAmulet) ? 0 : _blueDiamondAmulet;
+    blueWorldAmulet = isNaN(_blueWorldAmulet) ? 0 : _blueWorldAmulet;
+
+    yellowTopazAmulet = isNaN(_yellowTopazAmulet) ? 0 : _yellowTopazAmulet;
+    citrineAmulet = isNaN(_citrineAmulet) ? 0 : _citrineAmulet;
+    amberAmulet = isNaN(_amberAmulet) ? 0 : _amberAmulet;
+    yellowDiamondAmulet = isNaN(_yellowDiamondAmulet) ? 0 : _yellowDiamondAmulet;
+    yellowWorldAmulet = isNaN(_yellowWorldAmulet) ? 0 : _yellowWorldAmulet;
+
+
+
+}
+/*
+_redAgateAmulet, _garnetAmulet, _rubyAmulet, 
+    _redDiamondAmulet,_redWorldAmulet, _azuriteAmulet, _lapisLazuliAmulet, _blueSapphireAmulet, _blueDiamondAmulet, 
+    _blueWorldAmulet, _yellowTopazAmulet, _citrineAmulet, _amberAmulet, _yellowDiamondAmulet, _yellowWorldAmulet
+*/
+
 function selectCharacterKai() {
     playerCharacter = "Kai";
     setKai();
@@ -373,6 +454,7 @@ function YellowAmulets() {
         amuletStats = 10;
     }
 }
+
 
 
 //character menu
