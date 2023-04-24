@@ -3,16 +3,61 @@
         <title>Capstone Project - Union of the World tree</title>
         <link rel="stylesheet" href="Global.css">
         <link rel="stylesheet" href="Menu.css">
+        <link rel="stylesheet" href="Play.css">
+        <link rel="stylesheet" href="CharacterSelect.css">
     </head>
     <body>
         <div id="container">
             <h1>Union of the World tree</h1>
-            <button onclick="load()">Save</button>
+            
+            <div id="supportFeatures">
+                <button onclick="load()">Save</button>
+            <div>
+
+            <div id="Map1" style="visibility: visible;">
+                <img src="images/Stage1Map1.png" width="1200" height="550" alt="">
+            </div>
+
+            <div id="Map2" style="visibility: hidden;">
+                <img src="images/Stage1Map2.png" width="1200" height="550" alt="">
+            </div>
+
+            <div id="Map3" style="visibility: hidden;">
+                <img src="images/Stage1Map3.png" width="1200" height="550" alt="">
+            </div>
+
+            <div id="Map4" style="visibility: hidden;">
+                <img src="images/Stage1Map4.png" width="1200" height="550" alt="">
+            </div>
+
+            <button onclick="showStats()">Open Menu</button>
+
+            <div id="characterMenu">
+                <table>
+                    <tr>
+                        <td id="HealthStatus"></td>
+                        <td id="ManaStatus"></td>
+                        <td id="AttackStatus"></td>
+                        <td id="DefenseStatus"></td>
+                        <td id="SpeedStatus"></td>
+                    </tr>
+                    <tr>
+                        <td id="HealthPotion" style="visibility: visible;"></td>
+                        <td id="ManaPotion" style="visibility: visible;"></td>
+                        <td id="AttackCharm" style="visibility: visible;"></td>
+                        <td id="DefenseWand" style="visibility: visible;"></td>
+                        <td id="SpeedCharm" style="visibility: visible;"></td>
+                    </tr>
+                </table>
+            </div>
+
+            
         </div>
 
         
 
         <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
         <script src="Global.js"></script>
+        <script src="Characters.js"></script>
     </body>
 </html>

@@ -1,84 +1,84 @@
-import * as characterHandler from './Characters.js'
+/*import * as characterHandler from './Characters.js';
 function save() {
     //Save cookies
-    document.cookie = `playerCharacter=${characterHandler.playerCharacter}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `playerCharacter=${playerCharacter}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //Player stats
-    document.cookie = `HP=${characterHandler.HP}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `MP=${characterHandler.MP}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `Attack=${characterHandler.Attack}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `Defense=${characterHandler.Defense}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `Speed=${characterHandler.Speed}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `HP=${HP}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `MP=${MP}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `Attack=${Attack}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `Defense=${Defense}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `Speed=${Speed}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //weapons
-    document.cookie = `weaponName=${characterHandler.weaponName}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `weaponStats=${characterHandler.weaponStats}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `weaponName=${weaponName}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `weaponStats=${weaponStats}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //armor
-    document.cookie = `armorName=${characterHandler.armorName}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `armorStats=${characterHandler.armorStats}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `armorName=${armorName}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `armorStats=${armorStats}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //amulet
-    document.cookie = `amuletName=${characterHandler.amuletName}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `amuletStats=${characterHandler.amuletStats}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `amuletName=${amuletName}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `amuletStats=${amuletStats}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //Equipment status identfiers
     //weapons
-    document.cookie = `woodenSword=${characterHandler.woodenSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `ironSword=${characterHandler.ironSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `steelSword=${characterHandler.steelSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `royalSword=${characterHandler.royalSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `worldSword=${characterHandler.worldSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `woodenSword=${woodenSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `ironSword=${ironSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `steelSword=${steelSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `royalSword=${royalSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `worldSword=${worldSword}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
-    document.cookie = `basicStaff=${characterHandler.basicStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `enchantedStaff=${characterHandler.enchantedStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `aquamarineStaff=${characterHandler.aquamarineStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `royalStaff=${characterHandler.royalStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `worldStaff=${characterHandler.worldStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `basicStaff=${basicStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `enchantedStaff=${enchantedStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `aquamarineStaff=${aquamarineStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `royalStaff=${royalStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `worldStaff=${worldStaff}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
-    document.cookie = `handAxe=${characterHandler.handAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `combatAxe=${characterHandler.combatAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `greatAxe=${characterHandler.greatAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `royalAxe=${characterHandler.royalAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `worldAxe=${characterHandler.worldAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `handAxe=${handAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `combatAxe=${combatAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `greatAxe=${greatAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `royalAxe=${royalAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `worldAxe=${worldAxe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //armors
-    document.cookie = `goldMail=${characterHandler.goldMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `copperMail=${characterHandler.copperMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `ironMail=${characterHandler.ironMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `mythrilMail=${characterHandler.mythrilMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `worldMail=${characterHandler.worldMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `goldMail=${goldMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `copperMail=${copperMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `ironMail=${ironMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `mythrilMail=${mythrilMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `worldMail=${worldMail}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
-    document.cookie = `silkRobe=${characterHandler.silkRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `leatherRobe=${characterHandler.leatherRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `enchantedRobe=${characterHandler.enchantedRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `mythrilRobe=${characterHandler.mythrilRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `worldRobe=${characterHandler.worldRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `silkRobe=${silkRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `leatherRobe=${leatherRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `enchantedRobe=${enchantedRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `mythrilRobe=${mythrilRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `worldRobe=${worldRobe}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
-    document.cookie = `stonePlate=${characterHandler.stonePlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `bronzePlate=${characterHandler.bronzePlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `steelPlate=${characterHandler.steelPlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `mythrilPlate=${characterHandler.mythrilPlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `worldPlate=${characterHandler.worldPlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `stonePlate=${stonePlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `bronzePlate=${bronzePlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `steelPlate=${steelPlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `mythrilPlate=${mythrilPlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `worldPlate=${worldPlate}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //amulets
-    document.cookie = `redAgateAmulet=${characterHandler.redAgateAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `garnetAmulet=${characterHandler.garnetAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `rubyAmulet=${characterHandler.rubyAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `redDiamondAmulet=${characterHandler.redDiamondAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `redWorldAmulet=${characterHandler.redWorldAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `redAgateAmulet=${redAgateAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `garnetAmulet=${garnetAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `rubyAmulet=${rubyAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `redDiamondAmulet=${redDiamondAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `redWorldAmulet=${redWorldAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
-    document.cookie = `azuriteAmulet=${characterHandler.azuriteAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `lapisLazuliAmulet=${characterHandler.lapisLazuliAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `blueSapphireAmulet=${characterHandler.blueSapphireAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `blueDiamondAmulet=${characterHandler.blueDiamondAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `blueWorldAmulet=${characterHandler.blueWorldAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `azuriteAmulet=${azuriteAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `lapisLazuliAmulet=${lapisLazuliAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `blueSapphireAmulet=${blueSapphireAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `blueDiamondAmulet=${blueDiamondAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `blueWorldAmulet=${blueWorldAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
-    document.cookie = `yellowTopazAmulet=${characterHandler.yellowTopazAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `citrineAmulet=${characterHandler.citrineAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `amberAmulet=${characterHandler.amberAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `yellowDiamondAmulet=${characterHandler.yellowDiamondAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `yellowWorldAmulet=${characterHandler.yellowWorldAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `yellowTopazAmulet=${yellowTopazAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `citrineAmulet=${citrineAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `amberAmulet=${amberAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `yellowDiamondAmulet=${yellowDiamondAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `yellowWorldAmulet=${yellowWorldAmulet}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
 }
 
@@ -163,12 +163,12 @@ export function load() {
     let amberAmulet = Number(getCookie("amberAmulet"));
     let yellowDiamondAmulet = Number(getCookie("yellowDiamondAmulet"));
     let yellowWorldAmulet = Number(getCookie("yellowWorldAmulet"));
+/*
 
-
-characterHandler.load(playerCharacter, HP, MP, Attack, Defense, Speed, woodenSword, ironSword, steelSword, royalSword, 
+load(playerCharacter, HP, MP, Attack, Defense, Speed, woodenSword, ironSword, steelSword, royalSword, 
     worldSword, basicStaff, enchantedStaff, aquamarineStaff, royalStaff, worldStaff, handAxe, combatAxe, greatAxe, 
-    royalAxe, worldAxe, goldMail, copperMail, ironMail, mythrilMail, worldMail, silkRobe, LeatherRobe, enchantedRobe, 
+    royalAxe, worldAxe, goldMail, copperMail, ironMail, mythrilMail, worldMail, silkRobe, leatherRobe, enchantedRobe, 
     mythrilRobe, worldRobe, stonePlate, bronzePlate, steelPlate, mythrilPlate, worldPlate, redAgateAmulet, garnetAmulet, 
     rubyAmulet, redDiamondAmulet, redWorldAmulet, azuriteAmulet, lapisLazuliAmulet, blueSapphireAmulet, blueDiamondAmulet, 
-    blueWorldAmulet, yellowTopazAmulet, citrineAmulet, amberAmulet, yellowDiamondAmulet, yellowWorldAmulet);
-}
+    blueWorldAmulet, yellowTopazAmulet, citrineAmulet, amberAmulet, yellowDiamondAmulet, yellowWorldAmulet); 
+} */

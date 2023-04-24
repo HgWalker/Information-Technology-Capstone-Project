@@ -31,17 +31,17 @@ let golemAttack; //Variable to hold Attack Points of the enemy type golem
 let golemDefense; //Variable to hold Defense Points of the enemy type golem
 let golemSpeed; //Variable to hold Speed Points of the enemy type golem
 
-let hydraHP; //Variable to hold Health Points of the enemy type hydra
-let hydraMP; //Variable to hold Mana Points of the enemy type hydra
-let hydraAttack; //Variable to hold Attack Points of the enemy type hydra
-let hydraDefense; //Variable to hold Defense Points of the enemy type hydra
-let hydraSpeed; //Variable to hold Speed Points of the enemy type hydra
+let SolarHP; //Variable to hold Health Points of the enemy type Solar
+let SolarMP; //Variable to hold Mana Points of the enemy type Solar
+let SolarAttack; //Variable to hold Attack Points of the enemy type Solar
+let SolarDefense; //Variable to hold Defense Points of the enemy type Solar
+let SolarSpeed; //Variable to hold Speed Points of the enemy type Solar
 
-let forestElementalHP; //Variable to hold Health Points of the enemy type dark elf
-let forestElementalMP; //Variable to hold Mana Points of the enemy type dark elf
-let forestElementalAttack; //Variable to hold Attack Points of the enemy type dark elf
-let forestElementalDefense; //Variable to hold Defense Points of the enemy type dark elf
-let forestElementalSpeed; //Variable to hold Speed Points of the enemy type dark elf
+let PhyreHP; //Variable to hold Health Points of the enemy type dark elf
+let PhyreMP; //Variable to hold Mana Points of the enemy type dark elf
+let PhyreAttack; //Variable to hold Attack Points of the enemy type dark elf
+let PhyreDefense; //Variable to hold Defense Points of the enemy type dark elf
+let PhyreSpeed; //Variable to hold Speed Points of the enemy type dark elf
 
 let griffinHP; //Variable to hold Health Points of the enemy type griffin
 let griffinMP; //Variable to hold Mana Points of the enemy type griffin
@@ -87,21 +87,21 @@ function setDarkElf() {
     
 }
 
-function setForestElemental() {
-    forestElementalHP = 5;
-    forestElementalMP = 8;
-    forestElementalAttack = 10;
-    forestElementalDefense = 10;
-    forestElementalSpeed = 5;
+function setPhyre() {
+    PhyreHP = 5;
+    PhyreMP = 8;
+    PhyreAttack = 10;
+    PhyreDefense = 10;
+    PhyreSpeed = 5;
     
 }
 
-function setHydra() {
-    hydraHP = 10;
-    hydraMP = 10;
-    hydraAttack = 10;
-    hydraDefense = 10;
-    hydraSpeed = 10;
+function setSolar() {
+    SolarHP = 10;
+    SolarMP = 10;
+    SolarAttack = 10;
+    SolarDefense = 10;
+    SolarSpeed = 10;
     
 }
 
@@ -111,5 +111,33 @@ function setGriffin() {
     griffinAttack = 8;
     griffinDefense = 5;
     griffinSpeed = 10;
+
+}
+
+//Bosses
+function setPhyre() {
+    PhyreHP = 15;
+    PhyreMP = 15;
+    PhyreAttack = 15;
+    PhyreDefense = 15;
+    PhyreSpeed = 15;
+    
+}
+
+function setSolar() {
+    SolarHP = 20;
+    SolarMP = 20;
+    SolarAttack = 20;
+    SolarDefense = 20;
+    SolarSpeed = 20;
+    
+}
+
+function setVan() {
+    griffinHP = 25;
+    griffinMP = 25;
+    griffinAttack = 25;
+    griffinDefense = 25;
+    griffinSpeed = 25;
 
 }
