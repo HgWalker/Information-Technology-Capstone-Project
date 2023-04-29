@@ -87,21 +87,21 @@ function setDarkElf() {
     
 }
 
-function setPhyre() {
-    PhyreHP = 5;
-    PhyreMP = 8;
-    PhyreAttack = 10;
-    PhyreDefense = 10;
-    PhyreSpeed = 5;
+function setGolem() {
+    GolemHP = 5;
+    GolemMP = 8;
+    GolemAttack = 10;
+    GolemDefense = 10;
+    GolemSpeed = 5;
     
 }
 
-function setSolar() {
-    SolarHP = 10;
-    SolarMP = 10;
-    SolarAttack = 10;
-    SolarDefense = 10;
-    SolarSpeed = 10;
+function setHydra() {
+    HydraHP = 10;
+    HydraMP = 10;
+    HydraAttack = 10;
+    HydraDefense = 10;
+    HydraSpeed = 10;
     
 }
 

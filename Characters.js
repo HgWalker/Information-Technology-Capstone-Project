@@ -1,13 +1,12 @@
-window.onload = function () { load(); };
 //Declarations
 let playerCharacter = ""; //Variable to set character
 
 //Stats
-let HP = 0; //Variable to hold Health Points
-let MP = 0; //Variable to hold Mana Points
-let Attack = 0; //Variable to hold Attack Points
-let Defense = 0; //Variable to hold Defense Points
-let Speed = 0; //Variable to hold Speed Points
+let Hp; //Variable to hold Health Points
+let Mp; //Variable to hold Mana Points
+let Attack; //Variable to hold Attack Points
+let Defense; //Variable to hold Defense Points
+let Speed; //Variable to hold Speed Points
 
 //Equipment
 let weaponName = "";
@@ -75,8 +74,8 @@ let yellowDiamondAmulet = 0;
 let yellowWorldAmulet = 0;
 
 //Potions
-let HPPotion = 0;
-let MPPotion = 0;
+let HpPotion = 0;
+let MpPotion = 0;
 
 //Charms
 let CharmHaste = 0;
@@ -96,21 +95,27 @@ const currentItemsStatus = [];
 
 
 //Functions 
+$(document).ready(function()
+{
+    process();
+});
 
-function load2(_playerCharacter, _HP, _MP, _Attack, _Defense, _Speed, _woodenSword, _ironSword, _steelSword, _royalSword, 
+function load(_playerCharacter, _Hp, _Mp, _Attack, _Defense, _Speed, _woodenSword, _ironSword, _steelSword, _royalSword, 
     _worldSword, _basicStaff, _enchantedStaff, _aquamarineStaff, _royalStaff, _worldStaff, _handAxe, _combatAxe, _greatAxe,
     _royalAxe, _worldAxe, _goldMail, _copperMail, _ironMail, _mythrilMail, _worldMail, _silkRobe, _leatherRobe, _enchantedRobe, 
     _mythrilRobe, _worldRobe, _stonePlate, _bronzePlate, _steelPlate, _mythrilPlate, _worldPlate, _redAgateAmulet, _garnetAmulet, 
     _rubyAmulet, _redDiamondAmulet, _redWorldAmulet, _azuriteAmulet, _lapisLazuliAmulet, _blueSapphireAmulet, _blueDiamondAmulet, 
     _blueWorldAmulet, _yellowTopazAmulet, _citrineAmulet, _amberAmulet, _yellowDiamondAmulet, _yellowWorldAmulet) {
     
+    console.log("load save");
     //character
     playerCharacter = isNaN(_playerCharacter) ? 0 : _playerCharacter;
-    HP = isNaN(_HP) ? 0 : _HP;
-    MP = isNaN(_MP) ? 0 : _MP;
+    Hp = isNaN(_Hp) ? 0 : _Hp;
+    Mp = isNaN(_Mp) ? 0 : _Mp;
     Attack = isNaN(_Attack) ? 0 : _Attack;
     Defense = isNaN(_Defense) ? 0 : _Defense;
     Speed = isNaN(_Speed) ? 0 : _Speed;
+    console.log("mana is"+ Mp);
 
     //weapons
     woodenSword = isNaN(_woodenSword) ? 0 : _woodenSword;
@@ -194,18 +199,19 @@ function selectCharacterTerrin() {
 }
 
 function setKai() {
-    HP = 8;
-    MP = 8;
+    Hp = 8;
+    Mp = 8;
     Attack = 10;
     Defense = 5;
     Speed = 5;
+    console.log("speed is " + Speed)
     save();
     
 }
 
 function setLuna() {
-    HP = 5;
-    MP = 10;
+    Hp = 5;
+    Mp = 10;
     Attack = 8;
     Defense = 5;
     Speed = 8;
@@ -214,8 +220,8 @@ function setLuna() {
 }
 
 function setTerrin() {
-    HP = 8;
-    MP = 5;
+    Hp = 8;
+    Mp = 5;
     Attack = 8;
     Defense = 10;
     Speed = 5;
@@ -473,12 +479,12 @@ function YellowAmulets() {
 
 //Items 
 function potionsUsed() {
-    if(HPPotion === 2) {
-        HP = HP + 5
+    if(HpPotion === 2) {
+        Hp = Hp + 5
     }
 
-    if(MPPotion === 2) {
-        MP = MP + 5
+    if(MpPotion === 2) {
+        Mp = Mp + 5
     }
 }
 
@@ -504,13 +510,13 @@ function wandUsed() {
 //character menu
 function showStats() {
     console.log("Stats");
-    $("#HealthStatus").text("Health " + HP);
-    $("#ManaStatus").text("Mana " + MP);
+    $("#HealthStatus").text("Health " + Hp);
+    $("#ManaStatus").text("Mana " + Mp);
     $("#AttackStatus").text("Attack " + Attack);
     $("#DefenseStatus").text("Defense " + Defense);
     $("#SpeedStatus").text("Speed " + Speed);
 
-    $("#HealthPotion").text("Health Potion");
+    $("#HealtHpotion").text("Health Potion");
     $("#ManaPotion").text("Mana Potion");
     $("#AttackCharm").text("Strength Charm");
     $("#DefenseWand").text("Shield Wand");
@@ -529,15 +535,17 @@ function addObject() {
 
 
 function save() {
+    console.log("saving");
     //Save cookies
     document.cookie = `playerCharacter=${playerCharacter}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //Player stats
-    document.cookie = `HP=${HP}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    document.cookie = `MP=${MP}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `Hp=${Hp}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `Mp=${Mp}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     document.cookie = `Attack=${Attack}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     document.cookie = `Defense=${Defense}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     document.cookie = `Speed=${Speed}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    console.log("Defense is " + Defense)
     
     //weapons
     document.cookie = `weaponName=${weaponName}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
@@ -612,17 +620,19 @@ function save() {
 }
 
 function getCookie(name) {
-    return document.cookie.split("; ").find((x) => x.startsWith(`${name}=`))?.split("=")[1];
+    return document.cookie.split("; ").find((x) => x.startsWith(`${name}`))?.split("=")[1];
 }
 
-function load() {
+function process() {
     let playerCharacter = getCookie("playerCharacter");
     
-    let HP = Number(getCookie("HP"));
-    let MP = Number(getCookie("MP"));
+    let Hp = Number(getCookie("Hp"));
+    let Mp = Number(getCookie("Mp"));
     let Attack = Number(getCookie("Attack"));
-    let Defense = Number(getCookie("Defense"));
+    Defense = Number(getCookie("Defense"));
     let Speed = Number(getCookie("Speed"));
+
+    console.log(Hp);
 
     //equipment
     let weaponName = getCookie("weaponName");
@@ -694,7 +704,7 @@ function load() {
     let yellowWorldAmulet = Number(getCookie("yellowWorldAmulet"));
 
 
-load2(playerCharacter, HP, MP, Attack, Defense, Speed, woodenSword, ironSword, steelSword, royalSword, 
+load(playerCharacter, Hp, Mp, Attack, Defense, Speed, woodenSword, ironSword, steelSword, royalSword, 
     worldSword, basicStaff, enchantedStaff, aquamarineStaff, royalStaff, worldStaff, handAxe, combatAxe, greatAxe, 
     royalAxe, worldAxe, goldMail, copperMail, ironMail, mythrilMail, worldMail, silkRobe, leatherRobe, enchantedRobe, 
     mythrilRobe, worldRobe, stonePlate, bronzePlate, steelPlate, mythrilPlate, worldPlate, redAgateAmulet, garnetAmulet, 
