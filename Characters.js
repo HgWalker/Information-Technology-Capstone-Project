@@ -711,3 +711,72 @@ load(playerCharacter, Hp, Mp, Attack, Defense, Speed, woodenSword, ironSword, st
     rubyAmulet, redDiamondAmulet, redWorldAmulet, azuriteAmulet, lapisLazuliAmulet, blueSapphireAmulet, blueDiamondAmulet, 
     blueWorldAmulet, yellowTopazAmulet, citrineAmulet, amberAmulet, yellowDiamondAmulet, yellowWorldAmulet); 
 }
+
+function moveImage() {
+    let audio = new Audio('footsteps.wav');
+    audio.play();
+
+    let imgKai = document.getElementById("kaiImg");
+    let xKai;
+    let yKai;
+
+    let imgLuna = document.getElementById("LunaImg");
+    let xLuna;
+    let yLuna;
+
+    let imgTerrin = document.getElementById("TerrinImg");
+    let xTerrin;
+    let yTerrin;
+
+    //kai move
+    if(playerCharacter === "Kai" && ) {
+        imgKai.style.left = xKai + 1;
+    }
+
+    if(playerCharacter === "Kai") {
+        imgKai.style.top = yKai + 1;
+    }
+
+    if(playerCharacter === "Kai") {
+        imgKai.style.left = xKai - 1;
+    }
+
+    if(playerCharacter === "Kai") {
+        imgKai.style.top = yKai - 1;
+    }
+
+    //luna move
+    if(playerCharacter === "Luna") {
+        imgLuna.style.left = xLuna + 1;
+    }
+
+    if(playerCharacter === "Luna") {
+        imgLuna.style.top = yLuna + 1;
+    }
+
+    if(playerCharacter === "Luna") {
+        imgLuna.style.left = xLuna - 1;
+    }
+
+    if(playerCharacter === "Luna") {
+        imgLuna.style.top = yLuna - 1;
+    }
+
+    //terrin move
+    if(playerCharacter === "Terrin") {
+        imgTerrin.style.left = xTerrin + 1;
+    }
+
+    if(playerCharacter === "Terrin") {
+        imgTerrin.style.top = yTerrin + 1;
+    }
+
+    if(playerCharacter === "Terrin") {
+        imgTerrin.style.left = xTerrin - 1;
+    }
+
+    if(playerCharacter === "Terrin") {
+        imgTerrin.style.top = yTerrin - 1;
+    }
+
+}

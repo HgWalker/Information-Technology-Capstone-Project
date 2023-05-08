@@ -37,17 +37,17 @@ let SolarAttack; //Variable to hold Attack Points of the enemy type Solar
 let SolarDefense; //Variable to hold Defense Points of the enemy type Solar
 let SolarSpeed; //Variable to hold Speed Points of the enemy type Solar
 
-let PhyreHP; //Variable to hold Health Points of the enemy type dark elf
-let PhyreMP; //Variable to hold Mana Points of the enemy type dark elf
-let PhyreAttack; //Variable to hold Attack Points of the enemy type dark elf
-let PhyreDefense; //Variable to hold Defense Points of the enemy type dark elf
-let PhyreSpeed; //Variable to hold Speed Points of the enemy type dark elf
+let VanHP; //Variable to hold Health Points of the enemy type dark elf
+let VanMP; //Variable to hold Mana Points of the enemy type dark elf
+let VanAttack; //Variable to hold Attack Points of the enemy type dark elf
+let VanDefense; //Variable to hold Defense Points of the enemy type dark elf
+let VanSpeed; //Variable to hold Speed Points of the enemy type dark elf
 
-let griffinHP; //Variable to hold Health Points of the enemy type griffin
-let griffinMP; //Variable to hold Mana Points of the enemy type griffin
-let griffinAttack; //Variable to hold Attack Points of the enemy type griffin
-let griffinDefense; //Variable to hold Defense Points of the enemy type griffin
-let griffinSpeed; //Variable to hold Speed Points of the enemy type griffin
+let IgnessHP; //Variable to hold Health Points of the enemy type griffin
+let IgnessMP; //Variable to hold Mana Points of the enemy type griffin
+let IgnessAttack; //Variable to hold Attack Points of the enemy type griffin
+let IgnessDefense; //Variable to hold Defense Points of the enemy type griffin
+let IgnessSpeed; //Variable to hold Speed Points of the enemy type griffin
 
 
 //enemy stats
@@ -115,12 +115,12 @@ function setGriffin() {
 }
 
 //Bosses
-function setPhyre() {
-    PhyreHP = 15;
-    PhyreMP = 15;
-    PhyreAttack = 15;
-    PhyreDefense = 15;
-    PhyreSpeed = 15;
+function setVan() {
+    VanHP = 15;
+    VanMP = 15;
+    VanAttack = 15;
+    VanDefense = 15;
+    VanSpeed = 15;
     
 }
 
@@ -133,11 +133,11 @@ function setSolar() {
     
 }
 
-function setVan() {
-    griffinHP = 25;
-    griffinMP = 25;
-    griffinAttack = 25;
-    griffinDefense = 25;
-    griffinSpeed = 25;
+function setIgness() {
+    IgnessHP = 25;
+    IgnessMP = 25;
+    IgnessAttack = 25;
+    IgnessDefense = 25;
+    IgnessSpeed = 25;
 
 }
