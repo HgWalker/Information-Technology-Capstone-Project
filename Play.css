@@ -27,6 +27,61 @@
 }
 
 #characterMenu {
+    position: absolute;
     text-align: center;
+    color: black;
     margin-left: 30%;
+
 }
+
+#kaiImg {
+    position: absolute;
+    margin-top: 330px;
+    right: 75%;
+}
+
+#LunaImg {
+    position: absolute;
+    margin-top: 330px;
+    right: 75%;
+}
+
+#TerrinImg {
+    position: absolute;
+    margin-top: 330px;
+    right: 75%;
+}
+
+#SlimeImg {
+    position: absolute;
+    margin-top: 250px;
+    right: 5%;
+}
+
+#HydraImg {
+    position: absolute;
+    margin-top: 60px;
+    right: 40%;
+}
+
+#ElfImg {
+    position: absolute;
+    margin-top: 390px;
+    right: 40%;
+}
+
+#monsterArea {
+    margin-top: 700px;
+    background-color: black;
+}
+
+#monsterSprites {
+    text-align: center;
+}
+
+#monsterInfo {
+    color: white;
+    text-align: center;
+}
+
+

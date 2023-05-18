@@ -1,5 +1,15 @@
 //Declarations
-let playerCharacter = ""; //Variable to set character
+let playerCharacter; //Variable to set character
+let walkInterval;
+
+//move variables
+let moveingLeftRight = 0;
+let leftHold;
+let rightHold;
+
+let moveingUpDown = 0;
+let upHold;
+let downHold;
 
 //Stats
 let Hp; //Variable to hold Health Points
@@ -15,7 +25,19 @@ let armorName = "";
 let armorStats;
 let amuletName = "";
 let amuletStats;
+/*
+#LunaImg {
+    position: absolute;
+    margin-top: 330px;
+    right: 75%;
+}
 
+#TerrinImg {
+    position: absolute;
+    margin-top: 330px;
+    right: 75%;
+}
+*/
 //Equipment status identfiers
 let woodenSword = 0;
 let ironSword = 0;
@@ -84,6 +106,215 @@ let CharmStrength = 0;
 //Wand
 let ShieldWand = 0; 
 
+/*
+//Enemy stats
+let slimeHP; //Variable to hold Health Points of the enemy type slime
+let slimeMP; //Variable to hold Mana Points of the enemy type slime
+let slimeAttack; //Variable to hold Attack Points of the enemy type slime
+let slimeDefense; //Variable to hold Defense Points of the enemy type slime
+let slimeSpeed; //Variable to hold Speed Points of the enemy type slime
+
+let greatSlimeHP; //Variable to hold Health Points of the enemy type great slime
+let greatSlimeMP; //Variable to hold Mana Points of the enemy type great slime
+let greatSlimeAttack; //Variable to hold Attack Points of the enemy type great slime
+let greatSlimeDefense; //Variable to hold Defense Points of the enemy type great slime
+let greatSlimeSpeed; //Variable to hold Speed Points of the enemy type great slime
+
+let direWolfHP; //Variable to hold Health Points of the enemy type dire wolf
+let direWolfMP; //Variable to hold Mana Points of the enemy type dire wolf
+let direWolfAttack; //Variable to hold Attack Points of the enemy type dire wolf
+let direWolfDefense; //Variable to hold Defense Points of the enemy type dire wolf
+let direWolfSpeed; //Variable to hold Speed Points of the enemy type dire wolf
+
+let darkElfHP; //Variable to hold Health Points of the enemy type dark elf
+let darkElfMP; //Variable to hold Mana Points of the enemy type dark elf
+let darkElfAttack; //Variable to hold Attack Points of the enemy type dark elf
+let darkElfDefense; //Variable to hold Defense Points of the enemy type dark elf
+let darkElfSpeed; //Variable to hold Speed Points of the enemy type dark elf
+
+//
+let golemHP; //Variable to hold Health Points of the enemy type golem
+let golemMP; //Variable to hold Mana Points of the enemy type golem
+let golemAttack; //Variable to hold Attack Points of the enemy type golem
+let golemDefense; //Variable to hold Defense Points of the enemy type golem
+let golemSpeed; //Variable to hold Speed Points of the enemy type golem
+
+let SolarHP; //Variable to hold Health Points of the enemy type Solar
+let SolarMP; //Variable to hold Mana Points of the enemy type Solar
+let SolarAttack; //Variable to hold Attack Points of the enemy type Solar
+let SolarDefense; //Variable to hold Defense Points of the enemy type Solar
+let SolarSpeed; //Variable to hold Speed Points of the enemy type Solar
+
+let VanHP; //Variable to hold Health Points of the enemy type dark elf
+let VanMP; //Variable to hold Mana Points of the enemy type dark elf
+let VanAttack; //Variable to hold Attack Points of the enemy type dark elf
+let VanDefense; //Variable to hold Defense Points of the enemy type dark elf
+let VanSpeed; //Variable to hold Speed Points of the enemy type dark elf
+
+let IgnessHP; //Variable to hold Health Points of the enemy type griffin
+let IgnessMP; //Variable to hold Mana Points of the enemy type griffin
+let IgnessAttack; //Variable to hold Attack Points of the enemy type griffin
+let IgnessDefense; //Variable to hold Defense Points of the enemy type griffin
+let IgnessSpeed; //Variable to hold Speed Points of the enemy type griffin
+
+
+//enemy stats
+function setSlime() {
+    slimeHP = 5;
+    slimeMP = 10;
+    slimeAttack = 5;
+    slimeDefense = 8;
+    slimeSpeed = 5;
+    
+}
+
+function setGreatSlime() {
+    greatSlimeHP = 10;
+    greatSlimeMP = 10;
+    greatSlimeAttack = 8;
+    greatSlimeDefense = 10;
+    greatSlimeSpeed = 4;
+    
+}
+
+function setDireWolf() {
+    direWolfHP = 8;
+    direWolfMP = 5;
+    direWolfAttack = 10;
+    direWolfDefense = 5;
+    direWolfSpeed = 10;
+    
+}
+
+function setDarkElf() {
+    darkElfHP = 8;
+    darkElfMP = 10;
+    darkElfAttack = 5;
+    darkElfDefense = 5;
+    darkElfSpeed = 8;
+    
+}
+
+function setGolem() {
+    GolemHP = 5;
+    GolemMP = 8;
+    GolemAttack = 10;
+    GolemDefense = 10;
+    GolemSpeed = 5;
+    
+}
+
+function setHydra() {
+    HydraHP = 10;
+    HydraMP = 10;
+    HydraAttack = 10;
+    HydraDefense = 10;
+    HydraSpeed = 10;
+    
+}
+
+function setGriffin() {
+    griffinHP = 5;
+    griffinMP = 10;
+    griffinAttack = 8;
+    griffinDefense = 5;
+    griffinSpeed = 10;
+
+}
+
+//Bosses
+function setVan() {
+    VanHP = 15;
+    VanMP = 15;
+    VanAttack = 15;
+    VanDefense = 15;
+    VanSpeed = 15;
+    
+}
+
+function setSolar() {
+    SolarHP = 20;
+    SolarMP = 20;
+    SolarAttack = 20;
+    SolarDefense = 20;
+    SolarSpeed = 20;
+    
+}
+
+function setIgness() {
+    IgnessHP = 25;
+    IgnessMP = 25;
+    IgnessAttack = 25;
+    IgnessDefense = 25;
+    IgnessSpeed = 25;
+
+}
+*/
+
+//enemy stats
+   let slimeHP = 5;
+   let slimeMP = 10;
+   let slimeAttack = 5;
+   let slimeDefense = 8;
+   let slimeSpeed = 5;
+   /*
+
+   let greatSlimeHP = 10;
+   let greatSlimeMP = 10;
+   let greatSlimeAttack = 8;
+   let greatSlimeDefense = 10;
+   let greatSlimeSpeed = 4;
+    
+   let direWolfHP = 8;
+   let direWolfMP = 5;
+   let direWolfAttack = 10;
+   let direWolfDefense = 5;
+   let direWolfSpeed = 10;
+
+   let darkElfHP = 8;
+   let darkElfMP = 10;
+   let darkElfAttack = 5;
+   let darkElfDefense = 5;
+   let darkElfSpeed = 8;
+
+   let GolemHP = 5;
+   let GolemMP = 8;
+   let GolemAttack = 10;
+   let GolemDefense = 10;
+   let GolemSpeed = 5;
+
+   let HydraHP = 10;
+   let HydraMP = 10;
+   let HydraAttack = 10;
+   let HydraDefense = 10;
+   let HydraSpeed = 10;
+    
+   let griffinHP = 5;
+   let griffinMP = 10;
+   let griffinAttack = 8;
+   let griffinDefense = 5;
+   let griffinSpeed = 10;
+
+   let VanHP = 15;
+   let VanMP = 15;
+   let VanAttack = 15;
+   let VanDefense = 15;
+   let VanSpeed = 15;
+    
+   let SolarHP = 20;
+   let SolarMP = 20;
+   let SolarAttack = 20;
+   let SolarDefense = 20;
+   let SolarSpeed = 20;
+    
+   let IgnessHP = 25;
+   let IgnessMP = 25;
+   let IgnessAttack = 25;
+   let IgnessDefense = 25;
+   let IgnessSpeed = 25;
+
+*/
+
 //Menu arrays
 const currentEquipmentStatus = [woodenSword, ironSword, steelSword, royalSword, worldSword, basicStaff, enchantedStaff, 
     aquamarineStaff, royalStaff, worldStaff, handAxe, combatAxe, greatAxe, royalAxe, worldAxe, goldMail, copperMail, 
@@ -115,7 +346,7 @@ function load(_playerCharacter, _Hp, _Mp, _Attack, _Defense, _Speed, _woodenSwor
     Attack = isNaN(_Attack) ? 0 : _Attack;
     Defense = isNaN(_Defense) ? 0 : _Defense;
     Speed = isNaN(_Speed) ? 0 : _Speed;
-    console.log("mana is"+ Mp);
+    console.log("playerCharacter is "+ playerCharacter);
 
     //weapons
     woodenSword = isNaN(_woodenSword) ? 0 : _woodenSword;
@@ -175,6 +406,13 @@ function load(_playerCharacter, _Hp, _Mp, _Attack, _Defense, _Speed, _woodenSwor
     yellowWorldAmulet = isNaN(_yellowWorldAmulet) ? 0 : _yellowWorldAmulet;
 
 
+        console.log(playerCharacter);
+
+    setTheCharacter();
+    //set image
+    //if(playerCharacter)
+
+
 
 }
 /*
@@ -184,17 +422,17 @@ _redAgateAmulet, _garnetAmulet, _rubyAmulet,
 */
 
 function selectCharacterKai() {
-    playerCharacter = "Kai";
+    playerCharacter = 1;
     setKai();
 }
 
 function selectCharacterLuna() {
-    playerCharacter = "Luna";
+    playerCharacter = 2;
     setLuna();
 }
 
 function selectCharacterTerrin() {
-    playerCharacter = "Terrin";
+    playerCharacter = 3;
     setTerrin();
 }
 
@@ -227,6 +465,28 @@ function setTerrin() {
     Speed = 5;
     save();
     
+}
+
+function setTheCharacter() {
+    if(playerCharacter === 1) {
+        $("#LunaImg").css("visibility", "hidden");
+        $("#TerrinImg").css("visibility", "hidden");
+        $("#kaiImg").css("visibility", "visible");
+    }
+
+    if(playerCharacter === 2) {
+        $("#kaiImg").css("visibility", "hidden");
+        $("#TerrinImg").css("visibility", "hidden");
+        $("#LunaImg").css("visibility", "visible");
+        
+        
+    }
+
+    if(playerCharacter === 3) {
+        $("#kaiImg").css("visibility", "hidden");
+        $("#LunaImg").css("visibility", "hidden");
+        $("#TerrinImg").css("visibility", "visible");
+    }
 }
 
 //weapons
@@ -510,7 +770,7 @@ function wandUsed() {
 //character menu
 function showStats() {
     console.log("Stats");
-    $("#HealthStatus").text("Health " + Hp);
+    $("#HealthStatus").text("Health " + Hp); 
     $("#ManaStatus").text("Mana " + Mp);
     $("#AttackStatus").text("Attack " + Attack);
     $("#DefenseStatus").text("Defense " + Defense);
@@ -624,7 +884,7 @@ function getCookie(name) {
 }
 
 function process() {
-    let playerCharacter = getCookie("playerCharacter");
+    let playerCharacter = Number(getCookie("playerCharacter"));
     
     let Hp = Number(getCookie("Hp"));
     let Mp = Number(getCookie("Mp"));
@@ -711,8 +971,103 @@ load(playerCharacter, Hp, Mp, Attack, Defense, Speed, woodenSword, ironSword, st
     rubyAmulet, redDiamondAmulet, redWorldAmulet, azuriteAmulet, lapisLazuliAmulet, blueSapphireAmulet, blueDiamondAmulet, 
     blueWorldAmulet, yellowTopazAmulet, citrineAmulet, amberAmulet, yellowDiamondAmulet, yellowWorldAmulet); 
 }
+/*
+function triggerUpMovement() {
+    walkInterval = window.setInterval(moveImageUp, 300);
+    
+}
+*/
+function moveImageUp() {
+    //let audio = new Audio('footsteps-1.mp3');
+    //audio.play();
+    
+    /*
+    let imgKai = document.getElementById("kaiImg");
+    let xKai;
+    let yKai;
+    
+    let imgLuna = document.getElementById("LunaImg");
+    let xLuna;
+    let yLuna;
 
-function moveImage() {
+    let imgTerrin = document.getElementById("TerrinImg");
+    let xTerrin;
+    let yTerrin;
+
+    
+    //kai move
+    if(playerCharacter === "Kai") {
+        imgKai.style.top = yKai + 5;
+    }  */
+    //let currntpostion = document.getElementById("playerSprites").style.objectPosition;
+
+    //kai
+    if(playerCharacter === 1) {
+        moveingUpDown = moveingUpDown - 5;
+        upHold = "" + moveingUpDown;
+        let currntpostion = document.getElementById("kaiImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = upHold + "%";
+    }
+    if(playerCharacter === 2) {
+        moveingUpDown = moveingUpDown - 5;
+        upHold = "" + moveingUpDown;
+        let currntpostion = document.getElementById("LunaImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = upHold + "%";
+    }
+    if(playerCharacter === 3) {
+        moveingUpDown = moveingUpDown - 5;
+        upHold = "" + moveingUpDown;
+        let currntpostion = document.getElementById("TerrinImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = upHold + "%";
+    }
+    
+
+    //$("#playerSprites").css({"Position":"absolute","left":"-45%"});
+    
+
+    //document.getElementById("kaiImg").style.right() = currntpostion + 5;
+
+    /*
+    //luna move
+    if(playerCharacter === "Luna") {
+        imgLuna.style.top = yLuna + 5;
+    }
+
+    //terrin move
+    if(playerCharacter === "Terrin") {
+        imgTerrin.style.top = yTerrin + 5;
+    }
+
+    */
+}
+
+function moveImageDown() {
+    if(playerCharacter === 1) {
+        moveingUpDown = moveingUpDown + 5;
+        downHold = "" + moveingUpDown;
+        let currntpostion = document.getElementById("kaiImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = downHold + "%";
+    }
+    if(playerCharacter === 1) {
+        moveingUpDown = moveingUpDown + 5;
+        downHold = "" + moveingUpDown;
+        let currntpostion = document.getElementById("LunaImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = downHold + "%";
+    }
+    if(playerCharacter === 1) {
+        moveingUpDown = moveingUpDown + 5;
+        downHold = "" + moveingUpDown;
+        let currntpostion = document.getElementById("TerrinImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = downHold + "%";
+    }
+    
+    /*
     let audio = new Audio('footsteps.wav');
     audio.play();
 
@@ -729,54 +1084,178 @@ function moveImage() {
     let yTerrin;
 
     //kai move
-    if(playerCharacter === "Kai" && ) {
-        imgKai.style.left = xKai + 1;
-    }
-
     if(playerCharacter === "Kai") {
-        imgKai.style.top = yKai + 1;
-    }
-
-    if(playerCharacter === "Kai") {
-        imgKai.style.left = xKai - 1;
-    }
-
-    if(playerCharacter === "Kai") {
-        imgKai.style.top = yKai - 1;
+        imgKai.style.top = yKai - 5;
     }
 
     //luna move
-    if(playerCharacter === "Luna") {
-        imgLuna.style.left = xLuna + 1;
+    if(playerCharacter === "Terrin") {
+        imgTerrin.style.top = yTerrin - 5;
+    } */
+
+}
+
+function moveImageRight() {
+    let currntpostion;
+    if(playerCharacter === 1) {
+        moveingLeftRight = moveingLeftRight + 5;
+        rightHold = "" + moveingLeftRight;
+        currntpostion = document.getElementById("kaiImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = rightHold + "%";
+    }
+    if(playerCharacter === 2) {
+        moveingLeftRight = moveingLeftRight + 5;
+        rightHold = "" + moveingLeftRight;
+        currntpostion = document.getElementById("LunaImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = rightHold + "%";
+    }
+    if(playerCharacter === 3) {
+        moveingLeftRight = moveingLeftRight + 5;
+        rightHold = "" + moveingLeftRight;
+        currntpostion = document.getElementById("TerrinImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = rightHold + "%";
     }
 
-    if(playerCharacter === "Luna") {
-        imgLuna.style.top = yLuna + 1;
+    console.log(moveingLeftRight);
+
+    battle(moveingLeftRight);
+
+    if(moveingLeftRight === 80) {
+        $("#Map1").css("visibility", "hidden");
+
+        $("#SlimeImg").css("visibility", "hidden");
+        $("#HydraImg").css("visibility", "hidden");
+        $("#ElfImg").css("visibility", "hidden");
+
+        $("#Map3").css("visibility", "visible");
+
+        moveingLeftRight = 1;
+        rightHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = rightHold + "%";
+    }
+    /*
+    let audio = new Audio('footsteps.wav');
+    audio.play();
+
+    let imgKai = document.getElementById("kaiImg");
+    let xKai;
+    let yKai;
+
+    let imgLuna = document.getElementById("LunaImg");
+    let xLuna;
+    let yLuna;
+
+    let imgTerrin = document.getElementById("TerrinImg");
+    let xTerrin;
+    let yTerrin;
+
+    //kai move
+    if(playerCharacter === "Kai") {
+        imgKai.style.left = xKai - 5;
     }
 
+
+    //luna move
     if(playerCharacter === "Luna") {
-        imgLuna.style.left = xLuna - 1;
+        imgLuna.style.left = xLuna - 5;
     }
 
+    //terrin move
+   if(playerCharacter === "Terrin") {
+        imgTerrin.style.left = xTerrin - 5;
+    }
+
+    */
+}
+
+function moveImageLeft() {
+    if(playerCharacter === 1) {
+        moveingLeftRight = moveingLeftRight - 5;
+        leftHold = "" + moveingLeftRight;
+        console.log(leftHold);
+        let currntpostion = document.getElementById("kaiImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = leftHold + "%";
+    }
+    if(playerCharacter === 1) {
+        moveingLeftRight = moveingLeftRight - 5;
+        leftHold = "" + moveingLeftRight;
+        console.log(leftHold);
+        let currntpostion = document.getElementById("LunaImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = leftHold + "%";
+    }
+    if(playerCharacter === 1) {
+        moveingLeftRight = moveingLeftRight - 5;
+        leftHold = "" + moveingLeftRight;
+        console.log(leftHold);
+        let currntpostion = document.getElementById("TerrinImg");
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = leftHold + "%";
+    }
+    
+
+    /*
+    let audio = new Audio('footsteps.wav');
+    audio.play();
+
+    let imgKai = document.getElementById("kaiImg");
+    let xKai;
+    let yKai;
+
+    let imgLuna = document.getElementById("LunaImg");
+    let xLuna;
+    let yLuna;
+
+    let imgTerrin = document.getElementById("TerrinImg");
+    let xTerrin;
+    let yTerrin;
+
+    //kai move
+    if(playerCharacter === "Kai") {
+        imgKai.style.left = xKai + 5;
+    }
+
+
+    //luna move
     if(playerCharacter === "Luna") {
-        imgLuna.style.top = yLuna - 1;
+        imgLuna.style.left = xLuna + 5;
     }
 
     //terrin move
     if(playerCharacter === "Terrin") {
-        imgTerrin.style.left = xTerrin + 1;
+        imgTerrin.style.left = xTerrin + 5;
     }
 
-    if(playerCharacter === "Terrin") {
-        imgTerrin.style.top = yTerrin + 1;
+    */
+    //battle(moveingLeftRight);
+}
+
+function battle(moveingLeftRight) {
+    if(moveingLeftRight === 70) {
+        $("#SlimeInfoImg").css("visibility", "visible");
+        $("#EnemyHealth").text(slimeHP); 
+        console.log("if statement")
     }
 
-    if(playerCharacter === "Terrin") {
-        imgTerrin.style.left = xTerrin - 1;
-    }
+    
+}
 
-    if(playerCharacter === "Terrin") {
-        imgTerrin.style.top = yTerrin - 1;
-    }
+function AttackEnemy() {
 
+    slimeHP = slimeHP - (Attack - slimeDefense);
+    if(slimeHP < 0) {
+        slimeHP = 0;
+    }
+    $("#EnemyHealth").text("Health: " + slimeHP); 
+
+    if(slimeHP === 0) {
+        $("#SlimeInfoImg").css("visibility", "hidden");
+        $("#SlimeImg").css("visibility", "hidden");
+        $("#EnemyHealth").text(""); 
+    }
 }

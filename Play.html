@@ -9,10 +9,13 @@
     <body>
         <div id="container">
             <h1>Union of the World tree</h1>
+
+            
             
             <div id="supportFeatures">
                 <button onclick="load()">Save</button>
             <div>
+            
 
             <div id="Map1" style="visibility: visible;">
                 <img src="images/Stage1Map1.png" width="1200" height="550" alt="">
@@ -29,37 +32,65 @@
             <div id="Map4" style="visibility: hidden;">
                 <img src="images/Stage1Map4.png" width="1200" height="550" alt="">
             </div>
-
-            <div id="playerSprites">
-                <img src="images/Kai.png" width="1200" height="550" alt="" id="kaiImg" style="visibility: visible;">
-
-                <img src="images/Luna.png" width="1200" height="550" alt="" id="LunaImg" style="visibility: hidden;">
-
-                <img src="images/Terrin.png" width="1200" height="550" alt="" id="TerrinImg" style="visibility: hidden;">
-            </div>
             
-
             <button onclick="showStats()">Open Menu</button>
 
-            <div id="characterMenu">
-                <table>
-                    <tr>
-                        <td id="HealthStatus"></td>
-                        <td id="ManaStatus"></td>
-                        <td id="AttackStatus"></td>
-                        <td id="DefenseStatus"></td>
-                        <td id="SpeedStatus"></td>
-                    </tr>
-                    <tr>
-                        <td id="HealthPotion" style="visibility: visible;"></td>
-                        <td id="ManaPotion" style="visibility: visible;"></td>
-                        <td id="AttackCharm" style="visibility: visible;"></td>
-                        <td id="DefenseWand" style="visibility: visible;"></td>
-                        <td id="SpeedCharm" style="visibility: visible;"></td>
-                    </tr>
-                </table>
+                <div id="characterMenu">
+                    <table>
+                        <tr>
+                            <td id="HealthStatus"></td>
+                            <td id="ManaStatus"></td>
+                            <td id="AttackStatus"></td>
+                            <td id="DefenseStatus"></td>
+                            <td id="SpeedStatus"></td>
+                        </tr>
+                        <tr>
+                            <td id="HealthPotion" style="visibility: visible;"></td>
+                            <td id="ManaPotion" style="visibility: visible;"></td>
+                            <td id="AttackCharm" style="visibility: visible;"></td>
+                            <td id="DefenseWand" style="visibility: visible;"></td>
+                            <td id="SpeedCharm" style="visibility: visible;"></td>
+                        </tr>
+                    </table>
+                </div>
+
+
+            <div id="playerSprites">
+                <img src="images/Kai.png" width="350" height="100" alt="" id="kaiImg" style="visibility: visible;">
+
+                <img src="images/luna.png" width="350" height="100" alt="" id="LunaImg" style="visibility: hidden;">
+
+                <img src="images/terrin.png" width="350" height="100" alt="" id="TerrinImg" style="visibility: hidden;">
+            </div>
+            
+            <img src="images/Enemies/slime.png" width="250" height="300" alt="" id="SlimeImg" style="visibility: visible;">
+            
+            <img src="images/Enemies/hydra.png" width="250" height="300" alt="" id="HydraImg" style="visibility: visible;">
+            
+            <img src="images/Enemies/dark_elf.png" width="250" height="300" alt="" id="ElfImg" style="visibility: visible;">
+            
+            <button onclick="moveImageUp()">up</button>
+            <button onclick="moveImageDown()">down</button>
+            <button onclick="moveImageLeft()">left</button>
+            <button onclick="moveImageRight()">right</button>
+
+            <div id="monsterArea">
+                <div id="monsterSprites">
+                    <img src="images/Enemies/slime.png" width="450" height="500" alt="" id="SlimeInfoImg" style="visibility: hidden;">
+            
+                    <img src="images/Enemies/hydra.png" width="250" height="300" alt="" id="HydraInfoImg" style="visibility: hidden;">
+            
+                    <img src="images/Enemies/dark_elf.png" width="250" height="300" alt="" id="ElfInfoImg" style="visibility: hidden;">
+                </div>
+
+                <div id="monsterInfo">
+                    <div id="EnemyHealth"></div>
+                </div>
+
+                <button onclick="AttackEnemy()">Attack</button>
             </div>
 
+            
             
         </div>
 
