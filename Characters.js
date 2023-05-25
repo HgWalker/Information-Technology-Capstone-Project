@@ -1,6 +1,8 @@
 //Declarations
 let playerCharacter; //Variable to set character
-let walkInterval;
+
+//maps
+let currentMaps = "Map 1";;
 
 //move variables
 let moveingLeftRight = 0;
@@ -257,7 +259,6 @@ function setIgness() {
    let slimeAttack = 5;
    let slimeDefense = 8;
    let slimeSpeed = 5;
-   /*
 
    let greatSlimeHP = 10;
    let greatSlimeMP = 10;
@@ -313,7 +314,8 @@ function setIgness() {
    let IgnessDefense = 25;
    let IgnessSpeed = 25;
 
-*/
+
+
 
 //Menu arrays
 const currentEquipmentStatus = [woodenSword, ironSword, steelSword, royalSword, worldSword, basicStaff, enchantedStaff, 
@@ -978,6 +980,7 @@ function triggerUpMovement() {
 }
 */
 function moveImageUp() {
+    let currntpostion;
     //let audio = new Audio('footsteps-1.mp3');
     //audio.play();
     
@@ -1005,25 +1008,49 @@ function moveImageUp() {
     if(playerCharacter === 1) {
         moveingUpDown = moveingUpDown - 5;
         upHold = "" + moveingUpDown;
-        let currntpostion = document.getElementById("kaiImg");
+        currntpostion = document.getElementById("kaiImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.top = upHold + "%";
     }
     if(playerCharacter === 2) {
         moveingUpDown = moveingUpDown - 5;
         upHold = "" + moveingUpDown;
-        let currntpostion = document.getElementById("LunaImg");
+        currntpostion = document.getElementById("LunaImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.top = upHold + "%";
     }
     if(playerCharacter === 3) {
         moveingUpDown = moveingUpDown - 5;
         upHold = "" + moveingUpDown;
-        let currntpostion = document.getElementById("TerrinImg");
+        currntpostion = document.getElementById("TerrinImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.top = upHold + "%";
     }
     
+    console.log("up or down: " + moveingUpDown);
+
+    
+    battle();
+
+    if(moveingUpDown === -40 && currentMaps === "Map 1") {
+        $("#Map1").css("visibility", "hidden");
+
+        $("#SlimeImg").css("visibility", "hidden");
+        $("#HydraImg").css("visibility", "hidden");
+        $("#ElfImg").css("visibility", "hidden");
+
+        $("#Map4").css("visibility", "visible");
+        currentMaps = "Map 4";
+
+        moveingUpDown = 88;
+        moveingLeftRight = 35;
+        upHold = "" + moveingUpDown;
+        rightHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = upHold + "%";
+        currntpostion.style.left = rightHold + "%";
+
+    }
 
     //$("#playerSprites").css({"Position":"absolute","left":"-45%"});
     
@@ -1045,26 +1072,51 @@ function moveImageUp() {
 }
 
 function moveImageDown() {
+    let currntpostion;
+
     if(playerCharacter === 1) {
         moveingUpDown = moveingUpDown + 5;
         downHold = "" + moveingUpDown;
-        let currntpostion = document.getElementById("kaiImg");
+        currntpostion = document.getElementById("kaiImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.top = downHold + "%";
     }
     if(playerCharacter === 1) {
         moveingUpDown = moveingUpDown + 5;
         downHold = "" + moveingUpDown;
-        let currntpostion = document.getElementById("LunaImg");
+        currntpostion = document.getElementById("LunaImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.top = downHold + "%";
     }
     if(playerCharacter === 1) {
         moveingUpDown = moveingUpDown + 5;
         downHold = "" + moveingUpDown;
-        let currntpostion = document.getElementById("TerrinImg");
+        currntpostion = document.getElementById("TerrinImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.top = downHold + "%";
+    }
+
+    console.log("up or down: " + moveingUpDown);
+    
+    battle();
+
+    if(moveingUpDown > 95 && currentMaps === "Map 1") {
+        $("#Map1").css("visibility", "hidden");
+
+        $("#SlimeImg").css("visibility", "hidden");
+        $("#HydraImg").css("visibility", "hidden");
+        $("#ElfImg").css("visibility", "hidden");
+
+        $("#Map2").css("visibility", "visible");
+        currentMaps = "Map 2";
+
+        moveingUpDown = -35;
+        moveingLeftRight = 35
+        downHold = "" + moveingUpDown;
+        leftHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.Top = downHold + "%";
+        currntpostion.style.left = leftHold + "%";
     }
     
     /*
@@ -1123,7 +1175,7 @@ function moveImageRight() {
 
     battle(moveingLeftRight);
 
-    if(moveingLeftRight === 80) {
+    if(moveingLeftRight === 80 && currentMaps === "Map 1") {
         $("#Map1").css("visibility", "hidden");
 
         $("#SlimeImg").css("visibility", "hidden");
@@ -1131,6 +1183,23 @@ function moveImageRight() {
         $("#ElfImg").css("visibility", "hidden");
 
         $("#Map3").css("visibility", "visible");
+        currentMaps = "Map 3";
+
+        moveingLeftRight = 1;
+        rightHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = rightHold + "%";
+    }
+
+    if(moveingLeftRight >= 61 && currentMaps === "Map 3") {
+        $("#Map3").css("visibility", "hidden");
+
+        $("#SlimeImg").css("visibility", "hidden");
+        $("#HydraImg").css("visibility", "hidden");
+        $("#ElfImg").css("visibility", "hidden");
+
+        $("#S2Map1").css("visibility", "visible");
+        currentMaps = "Stage 2 Map 1";
 
         moveingLeftRight = 1;
         rightHold = "" + moveingLeftRight;
@@ -1173,11 +1242,12 @@ function moveImageRight() {
 }
 
 function moveImageLeft() {
+    let currntpostion;
     if(playerCharacter === 1) {
         moveingLeftRight = moveingLeftRight - 5;
         leftHold = "" + moveingLeftRight;
         console.log(leftHold);
-        let currntpostion = document.getElementById("kaiImg");
+        currntpostion = document.getElementById("kaiImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.left = leftHold + "%";
     }
@@ -1185,7 +1255,7 @@ function moveImageLeft() {
         moveingLeftRight = moveingLeftRight - 5;
         leftHold = "" + moveingLeftRight;
         console.log(leftHold);
-        let currntpostion = document.getElementById("LunaImg");
+        currntpostion = document.getElementById("LunaImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.left = leftHold + "%";
     }
@@ -1193,7 +1263,7 @@ function moveImageLeft() {
         moveingLeftRight = moveingLeftRight - 5;
         leftHold = "" + moveingLeftRight;
         console.log(leftHold);
-        let currntpostion = document.getElementById("TerrinImg");
+        currntpostion = document.getElementById("TerrinImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.left = leftHold + "%";
     }
@@ -1236,26 +1306,73 @@ function moveImageLeft() {
 }
 
 function battle(moveingLeftRight) {
+    console.log("battle: " + moveingUpDown);
     if(moveingLeftRight === 70) {
         $("#SlimeInfoImg").css("visibility", "visible");
-        $("#EnemyHealth").text(slimeHP); 
-        console.log("if statement")
+        $("#EnemyHealth").text("Health: " + slimeHP); 
+        console.log("if statement");
     }
+
+    
+    if(moveingUpDown <= -5) {
+        $("#HydraInfoImg").css("visibility", "visible");
+        $("#EnemyHealth").text("Health: " + HydraHP); 
+        console.log("if statement hydra");
+    }
+
+    if(moveingUpDown >= 55) {
+        $("#ElfInfoImg").css("visibility", "visible");
+        $("#EnemyHealth").text("Health: " + darkElfHP); 
+        console.log("if statement elf");
+    }
+    
 
     
 }
 
 function AttackEnemy() {
 
-    slimeHP = slimeHP - (Attack - slimeDefense);
-    if(slimeHP < 0) {
-        slimeHP = 0;
-    }
-    $("#EnemyHealth").text("Health: " + slimeHP); 
+    if(moveingLeftRight === 70) {
+        slimeHP = slimeHP - (Attack - slimeDefense);
+        if(slimeHP < 0) {
+            slimeHP = 0;
+        }
+        $("#EnemyHealth").text("Health: " + slimeHP); 
 
-    if(slimeHP === 0) {
-        $("#SlimeInfoImg").css("visibility", "hidden");
-        $("#SlimeImg").css("visibility", "hidden");
-        $("#EnemyHealth").text(""); 
+        if(slimeHP === 0) {
+            $("#SlimeInfoImg").css("visibility", "hidden");
+            $("#SlimeImg").css("visibility", "hidden");
+            $("#EnemyHealth").text(""); 
+        }
+    } 
+    
+    
+    if(moveingUpDown <= -5) {
+        HydraHP = HydraHP - (Attack - HydraDefense);
+        if(HydraHP < 0) {
+            HydraHP = 0;
+        }
+        $("#EnemyHealth").text("Health: " + HydraHP); 
+
+        if(HydraHP === 0) {
+            $("#HydraInfoImg").css("visibility", "hidden");
+            $("#HydraImg").css("visibility", "hidden");
+            $("#EnemyHealth").text(""); 
+        }
     }
+
+    if(moveingUpDown >= 55) {
+        darkElfHP = darkElfHP - (Attack - darkElfDefense);
+        if(darkElfHP < 0) {
+            darkElfHP = 0;
+        }
+        $("#EnemyHealth").text("Health: " + darkElfHP); 
+
+        if(darkElfHP === 0) {
+            $("#ElfInfoImg").css("visibility", "hidden");
+            $("#ElfImg").css("visibility", "hidden");
+            $("#EnemyHealth").text(""); 
+        }
+    }
+    
 }

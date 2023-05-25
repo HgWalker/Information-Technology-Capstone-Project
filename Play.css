@@ -26,6 +26,27 @@
     left: 4%;
 }
 
+#S2Map1 {
+    position: absolute;
+    text-align: center;
+    margin-top: 100px;
+    left: 4%;
+}
+
+#S2Map2 {
+    position: absolute;
+    text-align: center;
+    margin-top: 100px;
+    left: 4%;
+}
+
+#S2Map3 {
+    position: absolute;
+    text-align: center;
+    margin-top: 100px;
+    left: 4%;
+}
+
 #characterMenu {
     position: absolute;
     text-align: center;
@@ -83,5 +104,6 @@
     color: white;
     text-align: center;
 }
+
 
 

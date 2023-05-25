@@ -2,3 +2,32 @@
     text-align: center;
     margin-top: 200;
 }
+
+#displayKaiImg {
+    position: absolute;
+}
+
+#displayLunaImg {
+    position: absolute;
+    right: 35%
+}
+
+#displayTerrinImg {
+    position: absolute;
+    right: 0%
+}
+
+#select_Kai_btn {
+    position: absolute;
+    right: 86%
+}
+
+#select_Luna_btn {
+    position: absolute;
+    right: 47%
+}
+
+#select_Terrin_btn {
+    position: absolute;
+    right: 12%
+}
