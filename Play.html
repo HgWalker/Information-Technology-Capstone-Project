@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <title>Capstone Project - Union of the World tree</title>
@@ -45,23 +46,25 @@
                 <img src="images/Stage2Map3.png" width="1200" height="550" alt="">
             </div>
             
-            <button onclick="showStats()">Open Menu</button>
+            <button onclick="MenuDisplay()">Menu</button>
 
-                <div id="characterMenu">
+                <div id="characterMenu" style="visibility: hidden;">
                     <table>
-                        <tr>
+                        <tr id="tableSection1">
                             <td id="HealthStatus"></td>
                             <td id="ManaStatus"></td>
                             <td id="AttackStatus"></td>
                             <td id="DefenseStatus"></td>
                             <td id="SpeedStatus"></td>
                         </tr>
-                        <tr>
-                            <td id="HealthPotion" style="visibility: visible;"></td>
-                            <td id="ManaPotion" style="visibility: visible;"></td>
-                            <td id="AttackCharm" style="visibility: visible;"></td>
-                            <td id="DefenseWand" style="visibility: visible;"></td>
-                            <td id="SpeedCharm" style="visibility: visible;"></td>
+                        <tr id="tableSection2">
+                            <td id="CurrentWeapon"></td>
+                            <td id="HealthPotion"></td>
+                            <td id="ManaPotion" ></td>
+                            <td id="AttackCharm"></td>
+                            <td id="DefenseWand"></td>
+                            <td id="SpeedCharm"></td>
+                            <td id="1stSapling"></td>
                         </tr>
                     </table>
                 </div>
@@ -81,6 +84,13 @@
             
             <img src="images/Enemies/dark_elf.png" width="250" height="300" alt="" id="ElfImg" style="visibility: visible;">
             
+            <img src="images/Enemies/van-boss-sprite-pixilart.png" width="350" height="100" alt="" id="VanImg" style="visibility: hidden;">
+                
+            <div id="EquipmentSprites">
+                <img src="images/Collect/red_sapling.png" width="150" height="250" alt="" id="RSapling" style="visibility: hidden;">
+                <img src="images/Collect/royal_sword.png" width="150" height="200" alt="" id="RSword" style="visibility: hidden;">
+            </div>
+
             <button onclick="moveImageUp()">up</button>
             <button onclick="moveImageDown()">down</button>
             <button onclick="moveImageLeft()">left</button>
@@ -93,16 +103,24 @@
                     <img src="images/Enemies/hydra.png" width="250" height="300" alt="" id="HydraInfoImg" style="visibility: hidden;">
             
                     <img src="images/Enemies/dark_elf.png" width="250" height="300" alt="" id="ElfInfoImg" style="visibility: hidden;">
+                    
+                    <img src="images/Enemies/van-boss-sprite-pixilart.png" width="250" height="300" alt="" id="VanInfoImg" style="visibility: hidden;">
                 </div>
 
                 <div id="monsterInfo">
                     <div id="EnemyHealth"></div>
+                    <div id="EnemyAttack"></div>
+                    <div id="EnemyDefense"></div>
+                    <div id="EnemyMana"></div>
+                    <div id="EnemySpeed"></div>
                 </div>
 
                 <button onclick="AttackEnemy()">Attack</button>
             </div>
-
-            
+            <!--
+            <audio class="footsteps">
+                <source src="Sounds/footsteps-1.mp3">
+            </audio> -->
             
         </div>
 

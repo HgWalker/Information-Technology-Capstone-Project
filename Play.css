@@ -52,8 +52,11 @@
     text-align: center;
     color: black;
     margin-left: 30%;
+    margin-top: 1.8%;
 
 }
+
+
 
 #kaiImg {
     position: absolute;
@@ -91,8 +94,14 @@
     right: 40%;
 }
 
+#VanImg {
+    position: absolute;
+    margin-top: 320px;
+    right: 40%;
+}
+
 #monsterArea {
-    margin-top: 700px;
+    margin-top: 650px;
     background-color: black;
 }
 
@@ -107,3 +116,14 @@
 
 
 
+#RSapling {
+    position: absolute;
+    margin-top: 260px;
+    right: 40%;
+}
+
+#RSword {
+    position: absolute;
+    margin-top: 60px;
+    right: 40%;
+}

@@ -1,8 +1,21 @@
 //Declarations
 let playerCharacter; //Variable to set character
+let menuState = "concealed";
+let stopAttacking;
+let stopItemSound;
+
+//walk
+let characterWalking;
+let stopWalking;
+
+//sounds
+let audio;
+let attackAudio;
+let itemAudio;
 
 //maps
-let currentMaps = "Map 1";;
+let currentMaps = "Map 1";
+let savedMap;
 
 //move variables
 let moveingLeftRight = 0;
@@ -338,9 +351,11 @@ function load(_playerCharacter, _Hp, _Mp, _Attack, _Defense, _Speed, _woodenSwor
     _royalAxe, _worldAxe, _goldMail, _copperMail, _ironMail, _mythrilMail, _worldMail, _silkRobe, _leatherRobe, _enchantedRobe, 
     _mythrilRobe, _worldRobe, _stonePlate, _bronzePlate, _steelPlate, _mythrilPlate, _worldPlate, _redAgateAmulet, _garnetAmulet, 
     _rubyAmulet, _redDiamondAmulet, _redWorldAmulet, _azuriteAmulet, _lapisLazuliAmulet, _blueSapphireAmulet, _blueDiamondAmulet, 
-    _blueWorldAmulet, _yellowTopazAmulet, _citrineAmulet, _amberAmulet, _yellowDiamondAmulet, _yellowWorldAmulet) {
+    _blueWorldAmulet, _yellowTopazAmulet, _citrineAmulet, _amberAmulet, _yellowDiamondAmulet, _yellowWorldAmulet, _savedMap) {
     
     console.log("load save");
+    savedMap = isNaN(_savedMap) ? 0 : _savedMap;
+
     //character
     playerCharacter = isNaN(_playerCharacter) ? 0 : _playerCharacter;
     Hp = isNaN(_Hp) ? 0 : _Hp;
@@ -407,6 +422,139 @@ function load(_playerCharacter, _Hp, _Mp, _Attack, _Defense, _Speed, _woodenSwor
     yellowDiamondAmulet = isNaN(_yellowDiamondAmulet) ? 0 : _yellowDiamondAmulet;
     yellowWorldAmulet = isNaN(_yellowWorldAmulet) ? 0 : _yellowWorldAmulet;
 
+    /*
+    if(savedMap === 2) {
+        currentMaps = "Map 2";
+
+        $("#Map1").css("visibility", "hidden");
+        $("#Map2").css("visibility", "visible");
+        $("#Map3").css("visibility", "hidden");
+        $("#Map4").css("visibility", "hidden");
+
+        $("#S2Map1").css("visibility", "hidden");
+        $("#S2Map2").css("visibility", "hidden");
+        $("#S2Map3").css("visibility", "hidden");
+
+        moveingUpDown = -25;
+        moveingLeftRight = 35
+        downHold = "" + moveingUpDown;
+        leftHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = downHold + "%";
+        currntpostion.style.left = leftHold + "%";
+    }
+    else if(savedMap === 3) {
+        currentMaps = "Map 3";
+
+        $("#Map1").css("visibility", "hidden");
+        $("#Map2").css("visibility", "hidden");
+        $("#Map3").css("visibility", "visible");
+        $("#Map4").css("visibility", "hidden");
+
+        $("#S2Map1").css("visibility", "hidden");
+        $("#S2Map2").css("visibility", "hidden");
+        $("#S2Map3").css("visibility", "hidden");
+
+        moveingLeftRight = 1;
+        rightHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = rightHold + "%";
+    }
+    else if(savedMap === 4) {
+        currentMaps = "Map 4";
+
+        $("#Map1").css("visibility", "hidden");
+        $("#Map2").css("visibility", "hidden");
+        $("#Map3").css("visibility", "hidden");
+        $("#Map4").css("visibility", "visible");
+
+        $("#S2Map1").css("visibility", "hidden");
+        $("#S2Map2").css("visibility", "hidden");
+        $("#S2Map3").css("visibility", "hidden");
+
+        moveingUpDown = 88;
+        moveingLeftRight = 35;
+        upHold = "" + moveingUpDown;
+        rightHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = upHold + "%";
+        currntpostion.style.left = rightHold + "%";
+    }
+    else if(savedMap === 5) {
+        currentMaps = "Stage 2 Map 1";
+
+        $("#Map1").css("visibility", "hidden");
+        $("#Map2").css("visibility", "hidden");
+        $("#Map3").css("visibility", "hidden");
+        $("#Map4").css("visibility", "hidden");
+
+        $("#S2Map1").css("visibility", "visible");
+        $("#S2Map2").css("visibility", "hidden");
+        $("#S2Map3").css("visibility", "hidden");
+
+        moveingLeftRight = 35;
+        rightHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = rightHold + "%";
+    }
+    else if(savedMap === 6) {
+        currentMaps = "Stage 2 Map 2";
+
+        $("#Map1").css("visibility", "hidden");
+        $("#Map2").css("visibility", "hidden");
+        $("#Map3").css("visibility", "hidden");
+        $("#Map4").css("visibility", "hidden");
+
+        $("#S2Map1").css("visibility", "hidden");
+        $("#S2Map2").css("visibility", "visible");
+        $("#S2Map3").css("visibility", "hidden");
+
+        moveingUpDown = 50;
+            moveingLeftRight = 35;
+            upHold = "" + moveingUpDown;
+            rightHold = "" + moveingLeftRight;
+            currntpostion.style.position = "absolute";
+            currntpostion.style.top = upHold + "%";
+            currntpostion.style.left = rightHold + "%";
+    }
+    else if(savedMap === 7) {
+        currentMaps = "Stage 2 Map 3";
+
+        $("#Map1").css("visibility", "hidden");
+        $("#Map2").css("visibility", "hidden");
+        $("#Map3").css("visibility", "hidden");
+        $("#Map4").css("visibility", "hidden");
+
+        $("#S2Map1").css("visibility", "hidden");
+        $("#S2Map2").css("visibility", "hidden");
+        $("#S2Map3").css("visibility", "visible");
+
+        moveingUpDown = 50;
+            moveingLeftRight = 35;
+            upHold = "" + moveingUpDown;
+            rightHold = "" + moveingLeftRight;
+            currntpostion.style.position = "absolute";
+            currntpostion.style.top = upHold + "%";
+            currntpostion.style.left = rightHold + "%";
+    }
+    else {
+        currentMaps = "Map 1";
+
+        $("#Map1").css("visibility", "visible");
+        $("#Map2").css("visibility", "hidden");
+        $("#Map3").css("visibility", "hidden");
+        $("#Map4").css("visibility", "hidden");
+
+        $("#S2Map1").css("visibility", "hidden");
+        $("#S2Map2").css("visibility", "hidden");
+        $("#S2Map3").css("visibility", "hidden");
+
+        moveingLeftRight = 1;
+        rightHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.left = rightHold + "%";
+    }
+    */
 
         console.log(playerCharacter);
 
@@ -441,7 +589,7 @@ function selectCharacterTerrin() {
 function setKai() {
     Hp = 8;
     Mp = 8;
-    Attack = 10;
+    Attack = 12;
     Defense = 5;
     Speed = 5;
     console.log("speed is " + Speed)
@@ -451,7 +599,7 @@ function setKai() {
 
 function setLuna() {
     Hp = 5;
-    Mp = 10;
+    Mp = 12;
     Attack = 8;
     Defense = 5;
     Speed = 8;
@@ -463,7 +611,7 @@ function setTerrin() {
     Hp = 8;
     Mp = 5;
     Attack = 8;
-    Defense = 10;
+    Defense = 12;
     Speed = 5;
     save();
     
@@ -770,6 +918,20 @@ function wandUsed() {
 
 
 //character menu
+function MenuDisplay() {
+    if(menuState === "concealed") {
+        menuState === "shown";
+        $("#characterMenu").css("visibility", "visible");
+    }
+    else if(menuState === "shown") {
+        menuState === "concealed";
+        $("#characterMenu").css("visibility", "hidden");
+    }
+
+    
+    showStats();
+}
+
 function showStats() {
     console.log("Stats");
     $("#HealthStatus").text("Health " + Hp); 
@@ -778,11 +940,18 @@ function showStats() {
     $("#DefenseStatus").text("Defense " + Defense);
     $("#SpeedStatus").text("Speed " + Speed);
 
-    $("#HealtHpotion").text("Health Potion");
-    $("#ManaPotion").text("Mana Potion");
-    $("#AttackCharm").text("Strength Charm");
-    $("#DefenseWand").text("Shield Wand");
+    $("#HealthPotion").text("Health Potion |");
+    $("#ManaPotion").text("Mana Potion |");
+    $("#AttackCharm").text("Strength Charm |");
+    $("#DefenseWand").text("Shield Wand |");
     $("#SpeedCharm").text("Haste Charm");
+
+
+    if(royalSword === 1) {
+        $("#CurrentWeapon").text("Royal Sword |");
+    }
+
+    
 
 }
 
@@ -799,7 +968,9 @@ function addObject() {
 function save() {
     console.log("saving");
     //Save cookies
+    //currentMaps = "Map 1";
     document.cookie = `playerCharacter=${playerCharacter}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    document.cookie = `savedMap=${savedMap}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     
     //Player stats
     document.cookie = `Hp=${Hp}; SameSite=None; Secure; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
@@ -887,6 +1058,7 @@ function getCookie(name) {
 
 function process() {
     let playerCharacter = Number(getCookie("playerCharacter"));
+    savedMap = Number(getCookie("savedMap"));
     
     let Hp = Number(getCookie("Hp"));
     let Mp = Number(getCookie("Mp"));
@@ -971,7 +1143,7 @@ load(playerCharacter, Hp, Mp, Attack, Defense, Speed, woodenSword, ironSword, st
     royalAxe, worldAxe, goldMail, copperMail, ironMail, mythrilMail, worldMail, silkRobe, leatherRobe, enchantedRobe, 
     mythrilRobe, worldRobe, stonePlate, bronzePlate, steelPlate, mythrilPlate, worldPlate, redAgateAmulet, garnetAmulet, 
     rubyAmulet, redDiamondAmulet, redWorldAmulet, azuriteAmulet, lapisLazuliAmulet, blueSapphireAmulet, blueDiamondAmulet, 
-    blueWorldAmulet, yellowTopazAmulet, citrineAmulet, amberAmulet, yellowDiamondAmulet, yellowWorldAmulet); 
+    blueWorldAmulet, yellowTopazAmulet, citrineAmulet, amberAmulet, yellowDiamondAmulet, yellowWorldAmulet, savedMap); 
 }
 /*
 function triggerUpMovement() {
@@ -981,9 +1153,18 @@ function triggerUpMovement() {
 */
 function moveImageUp() {
     let currntpostion;
+    /*
+    let audio = new Audio('Sounds/footsteps-1.mp3');
+    audio.play();
+    */
+    characterWalking = setTimeout(walk, 1);
+    
+    //let audio = document.getElementById("footsteps");
     //let audio = new Audio('footsteps-1.mp3');
     //audio.play();
-    
+
+    //document.getElementById("")
+    //$("footsteps").trigger('load')
     /*
     let imgKai = document.getElementById("kaiImg");
     let xKai;
@@ -1029,31 +1210,123 @@ function moveImageUp() {
     
     console.log("up or down: " + moveingUpDown);
 
+    if(currentMaps === "Stage 2 Map 2") {
+        if(moveingUpDown <= -5 && moveingLeftRight >= 40) {
+            $("#RSword").css("visibility", "hidden");
+            Attack = 22;
+            royalSword = 1;
+            /*
+            itemAudio = new Audio('Sounds/');
+            itemAudio.play();
+            stopItemSound = setTimeout(stopEquiping, 1000);
+            */
+            showStats();
+        }
+    }
+
     
     battle();
 
-    if(moveingUpDown === -40 && currentMaps === "Map 1") {
-        $("#Map1").css("visibility", "hidden");
+    if(moveingUpDown <= -25) {
+        if(currentMaps === "Stage 2 Map 1") {
+            $("#S2Map1").css("visibility", "hidden");
 
-        $("#SlimeImg").css("visibility", "hidden");
-        $("#HydraImg").css("visibility", "hidden");
-        $("#ElfImg").css("visibility", "hidden");
 
-        $("#Map4").css("visibility", "visible");
-        currentMaps = "Map 4";
+            $("#S2Map2").css("visibility", "visible");
 
-        moveingUpDown = 88;
-        moveingLeftRight = 35;
-        upHold = "" + moveingUpDown;
-        rightHold = "" + moveingLeftRight;
-        currntpostion.style.position = "absolute";
-        currntpostion.style.top = upHold + "%";
-        currntpostion.style.left = rightHold + "%";
+            $("#RSword").css("visibility", "visible");
+            currentMaps = "Stage 2 Map 2";
+
+            moveingUpDown = 50;
+            moveingLeftRight = 35;
+            upHold = "" + moveingUpDown;
+            rightHold = "" + moveingLeftRight;
+            currntpostion.style.position = "absolute";
+            currntpostion.style.top = upHold + "%";
+            currntpostion.style.left = rightHold + "%";
+        }
+    }
+
+    if(moveingUpDown <= -25) {
+        if(currentMaps === "Stage 2 Map 2") {
+            $("#S2Map2").css("visibility", "hidden");
+
+
+            $("#S2Map3").css("visibility", "visible");
+
+            $("#VanImg").css("visibility", "visible");
+
+            $("#RSapling").css("visibility", "visible");
+
+            currentMaps = "Stage 2 Map 3";
+
+            moveingUpDown = 50;
+            moveingLeftRight = 35;
+            upHold = "" + moveingUpDown;
+            rightHold = "" + moveingLeftRight;
+            currntpostion.style.position = "absolute";
+            currntpostion.style.top = upHold + "%";
+            currntpostion.style.left = rightHold + "%";
+        }
 
     }
 
+    if(moveingUpDown <= -25 && currentMaps === "Map 2") {
+        $("#Map2").css("visibility", "hidden");
+
+        
+        if(slimeHP === 0) {
+            $("#SlimeImg").css("visibility", "hidden"); 
+        }
+        else {
+            $("#SlimeImg").css("visibility", "visible"); 
+        }
+
+        if(HydraHP === 0) {
+            $("#HydraImg").css("visibility", "hidden");
+        }
+        else {
+            $("#HydraImg").css("visibility", "visible"); 
+        }
+
+        if(darkElfHP === 0) {
+            $("#ElfImg").css("visibility", "hidden");
+        }
+        else {
+            $("#ElfImg").css("visibility", "visible"); 
+        }
+
+        $("#ElfInfoImg").css("visibility", "hidden");
+
+        $("#EnemyHealth").text(""); 
+        $("#EnemyAttack").text("");  
+        $("#EnemyDefense").text(""); 
+        $("#EnemyMana").text("");  
+        $("#EnemySpeed").text(""); 
+
+        $("#Map1").css("visibility", "visible");
+        currentMaps = "Map 1";
+
+        moveingUpDown = 50;
+        moveingLeftRight = 35
+        downHold = "" + moveingUpDown;
+        leftHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = downHold + "%";
+        currntpostion.style.left = leftHold + "%";
+    }
+
+    if(currentMaps === "Stage 2 Map 3") {
+        if(moveingLeftRight <= 50 && moveingLeftRight >= 35) {
+            if(moveingUpDown <= 25) {
+                $("#RSapling").css("visibility", "hidden");
+                $("#1stSapling").text("| Red World Tree Sapling")
+            }
+        }
+    }
+
     //$("#playerSprites").css({"Position":"absolute","left":"-45%"});
-    
+    //currentMaps = "Stage 2 Map 1";
 
     //document.getElementById("kaiImg").style.right() = currntpostion + 5;
 
@@ -1069,10 +1342,38 @@ function moveImageUp() {
     }
 
     */
+
+    if(moveingUpDown <= -25 && currentMaps === "Map 1") {
+        $("#Map1").css("visibility", "hidden");
+
+        $("#SlimeImg").css("visibility", "hidden");
+        $("#HydraImg").css("visibility", "hidden");
+        $("#ElfImg").css("visibility", "hidden");
+
+        $("#HydraInfoImg").css("visibility", "hidden");
+        $("#EnemyHealth").text(""); 
+        $("#EnemyAttack").text("");  
+        $("#EnemyDefense").text(""); 
+        $("#EnemyMana").text("");  
+        $("#EnemySpeed").text(""); 
+
+        $("#Map4").css("visibility", "visible");
+        currentMaps = "Map 4";
+
+        moveingUpDown = 50;
+        moveingLeftRight = 35
+        downHold = "" + moveingUpDown;
+        leftHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = downHold + "%";
+        currntpostion.style.left = leftHold + "%";
+    }
 }
 
 function moveImageDown() {
     let currntpostion;
+
+    characterWalking = setTimeout(walk, 1);
 
     if(playerCharacter === 1) {
         moveingUpDown = moveingUpDown + 5;
@@ -1081,14 +1382,14 @@ function moveImageDown() {
         currntpostion.style.position = "absolute";
         currntpostion.style.top = downHold + "%";
     }
-    if(playerCharacter === 1) {
+    if(playerCharacter === 2) {
         moveingUpDown = moveingUpDown + 5;
         downHold = "" + moveingUpDown;
         currntpostion = document.getElementById("LunaImg");
         currntpostion.style.position = "absolute";
         currntpostion.style.top = downHold + "%";
     }
-    if(playerCharacter === 1) {
+    if(playerCharacter === 3) {
         moveingUpDown = moveingUpDown + 5;
         downHold = "" + moveingUpDown;
         currntpostion = document.getElementById("TerrinImg");
@@ -1100,29 +1401,86 @@ function moveImageDown() {
     
     battle();
 
-    if(moveingUpDown > 95 && currentMaps === "Map 1") {
+    if(moveingUpDown >= 55 && currentMaps === "Map 1") {
         $("#Map1").css("visibility", "hidden");
 
         $("#SlimeImg").css("visibility", "hidden");
         $("#HydraImg").css("visibility", "hidden");
         $("#ElfImg").css("visibility", "hidden");
 
+        $("#ElfInfoImg").css("visibility", "hidden");
+        $("#EnemyHealth").text(""); 
+        $("#EnemyAttack").text("");  
+        $("#EnemyDefense").text(""); 
+        $("#EnemyMana").text("");  
+        $("#EnemySpeed").text(""); 
+
         $("#Map2").css("visibility", "visible");
         currentMaps = "Map 2";
 
-        moveingUpDown = -35;
+
+
+        moveingUpDown = -25;
         moveingLeftRight = 35
         downHold = "" + moveingUpDown;
         leftHold = "" + moveingLeftRight;
         currntpostion.style.position = "absolute";
-        currntpostion.style.Top = downHold + "%";
+        currntpostion.style.top = downHold + "%";
         currntpostion.style.left = leftHold + "%";
+
+
+
+        moveImageDown();
+    }
+
+    
+    
+    if(moveingUpDown >= 55 && currentMaps === "Map 4") {
+        $("#Map4").css("visibility", "hidden");
+
+        if(slimeHP === 0) {
+            $("#SlimeImg").css("visibility", "hidden"); 
+        }
+        else {
+            $("#SlimeImg").css("visibility", "visible"); 
+        }
+
+        if(HydraHP === 0) {
+            $("#HydraImg").css("visibility", "hidden");
+        }
+        else {
+            $("#HydraImg").css("visibility", "visible"); 
+        }
+
+        if(darkElfHP === 0) {
+            $("#ElfImg").css("visibility", "hidden");
+        }
+        else {
+            $("#ElfImg").css("visibility", "visible"); 
+        }
+
+        $("#HydraInfoImg").css("visibility", "hidden");
+        $("#EnemyHealth").text(""); 
+        $("#EnemyAttack").text("");  
+        $("#EnemyDefense").text(""); 
+        $("#EnemyMana").text("");  
+        $("#EnemySpeed").text(""); 
+
+        $("#Map1").css("visibility", "visible");
+        currentMaps = "Map 1";
+
+        moveingUpDown = -20;
+        moveingLeftRight = 35;
+        upHold = "" + moveingUpDown;
+        rightHold = "" + moveingLeftRight;
+        currntpostion.style.position = "absolute";
+        currntpostion.style.top = upHold + "%";
+        currntpostion.style.left = rightHold + "%";
+
     }
     
-    /*
-    let audio = new Audio('footsteps.wav');
-    audio.play();
 
+/*
     let imgKai = document.getElementById("kaiImg");
     let xKai;
     let yKai;
@@ -1149,6 +1507,9 @@ function moveImageDown() {
 
 function moveImageRight() {
     let currntpostion;
+
+    characterWalking = setTimeout(walk, 1);
+
     if(playerCharacter === 1) {
         moveingLeftRight = moveingLeftRight + 5;
         rightHold = "" + moveingLeftRight;
@@ -1199,17 +1560,16 @@ function moveImageRight() {
         $("#ElfImg").css("visibility", "hidden");
 
         $("#S2Map1").css("visibility", "visible");
+
         currentMaps = "Stage 2 Map 1";
 
-        moveingLeftRight = 1;
+        moveingLeftRight = 35;
         rightHold = "" + moveingLeftRight;
         currntpostion.style.position = "absolute";
         currntpostion.style.left = rightHold + "%";
     }
+    
     /*
-    let audio = new Audio('footsteps.wav');
-    audio.play();
-
     let imgKai = document.getElementById("kaiImg");
     let xKai;
     let yKai;
@@ -1243,6 +1603,9 @@ function moveImageRight() {
 
 function moveImageLeft() {
     let currntpostion;
+
+    characterWalking = setTimeout(walk, 1);
+
     if(playerCharacter === 1) {
         moveingLeftRight = moveingLeftRight - 5;
         leftHold = "" + moveingLeftRight;
@@ -1251,7 +1614,7 @@ function moveImageLeft() {
         currntpostion.style.position = "absolute";
         currntpostion.style.left = leftHold + "%";
     }
-    if(playerCharacter === 1) {
+    if(playerCharacter === 2) {
         moveingLeftRight = moveingLeftRight - 5;
         leftHold = "" + moveingLeftRight;
         console.log(leftHold);
@@ -1259,7 +1622,7 @@ function moveImageLeft() {
         currntpostion.style.position = "absolute";
         currntpostion.style.left = leftHold + "%";
     }
-    if(playerCharacter === 1) {
+    if(playerCharacter === 3) {
         moveingLeftRight = moveingLeftRight - 5;
         leftHold = "" + moveingLeftRight;
         console.log(leftHold);
@@ -1268,11 +1631,7 @@ function moveImageLeft() {
         currntpostion.style.left = leftHold + "%";
     }
     
-
-    /*
-    let audio = new Audio('footsteps.wav');
-    audio.play();
-
+/*
     let imgKai = document.getElementById("kaiImg");
     let xKai;
     let yKai;
@@ -1307,22 +1666,56 @@ function moveImageLeft() {
 
 function battle(moveingLeftRight) {
     console.log("battle: " + moveingUpDown);
-    if(moveingLeftRight === 70) {
+    if(moveingLeftRight === 70 && currentMaps === "Map 1") {
         $("#SlimeInfoImg").css("visibility", "visible");
+
         $("#EnemyHealth").text("Health: " + slimeHP); 
+        $("#EnemyAttack").text("Attack: " + slimeAttack); 
+        $("#EnemyDefense").text("Defense: " + slimeDefense); 
+        $("#EnemyMana").text("Mana: " + slimeMP); 
+        $("#EnemySpeed").text("Speed: " + slimeSpeed); 
+
         console.log("if statement");
     }
 
     
-    if(moveingUpDown <= -5) {
-        $("#HydraInfoImg").css("visibility", "visible");
-        $("#EnemyHealth").text("Health: " + HydraHP); 
+    if(moveingUpDown <= -5 && currentMaps === "Map 1") {
+        if(HydraHP != 0) {
+            $("#HydraInfoImg").css("visibility", "visible");
+
+            $("#EnemyHealth").text("Health: " + HydraHP); 
+            $("#EnemyAttack").text("Attack: " + HydraAttack); 
+            $("#EnemyDefense").text("Defense: " + HydraDefense); 
+            $("#EnemyMana").text("Mana: " + HydraMP); 
+            $("#EnemySpeed").text("Speed: " + HydraSpeed);
+        }
+
         console.log("if statement hydra");
     }
 
-    if(moveingUpDown >= 55) {
-        $("#ElfInfoImg").css("visibility", "visible");
-        $("#EnemyHealth").text("Health: " + darkElfHP); 
+    if(moveingUpDown <= 45 && currentMaps === "Stage 2 Map 3") {
+        $("#VanInfoImg").css("visibility", "visible");
+
+        $("#EnemyHealth").text("Health: " + VanHP); 
+        $("#EnemyAttack").text("Attack: " + VanAttack); 
+        $("#EnemyDefense").text("Defense: " + VanDefense); 
+        $("#EnemyMana").text("Mana: " + VanMP); 
+        $("#EnemySpeed").text("Speed: " + VanSpeed); 
+
+        console.log("if statement Van");
+    }
+
+    if(moveingUpDown >= 35 && currentMaps === "Map 1") {
+        if(darkElfHP != 0) {
+            $("#ElfInfoImg").css("visibility", "visible");
+            
+            $("#EnemyHealth").text("Health: " + darkElfHP); 
+            $("#EnemyAttack").text("Attack: " + darkElfAttack); 
+            $("#EnemyDefense").text("Defense: " + darkElfDefense); 
+            $("#EnemyMana").text("Mana: " + darkElfMP); 
+            $("#EnemySpeed").text("Speed: " + darkElfSpeed); 
+        }
+
         console.log("if statement elf");
     }
     
@@ -1331,48 +1724,124 @@ function battle(moveingLeftRight) {
 }
 
 function AttackEnemy() {
-
-    if(moveingLeftRight === 70) {
+    /*
+    attackAudio = new Audio('Sounds/');
+    attackAudio.play();
+    
+    stopAttacking = setTimeout(stopAttack, 1000);
+    */
+    if(moveingLeftRight === 70 && currentMaps === "Map 1") {
         slimeHP = slimeHP - (Attack - slimeDefense);
         if(slimeHP < 0) {
             slimeHP = 0;
         }
+        
         $("#EnemyHealth").text("Health: " + slimeHP); 
+        $("#EnemyAttack").text("Attack: " + slimeAttack); 
+        $("#EnemyDefense").text("Defense: " + slimeDefense); 
+        $("#EnemyMana").text("Mana: " + slimeMP); 
+        $("#EnemySpeed").text("Speed: " + slimeSpeed); 
 
         if(slimeHP === 0) {
             $("#SlimeInfoImg").css("visibility", "hidden");
             $("#SlimeImg").css("visibility", "hidden");
             $("#EnemyHealth").text(""); 
+            $("#EnemyAttack").text("");  
+            $("#EnemyDefense").text(""); 
+            $("#EnemyMana").text("");  
+            $("#EnemySpeed").text(""); 
         }
     } 
     
     
-    if(moveingUpDown <= -5) {
+    if(moveingUpDown <= -5 && currentMaps === "Map 1") {
         HydraHP = HydraHP - (Attack - HydraDefense);
         if(HydraHP < 0) {
             HydraHP = 0;
         }
+        
         $("#EnemyHealth").text("Health: " + HydraHP); 
+        $("#EnemyAttack").text("Attack: " + HydraAttack); 
+        $("#EnemyDefense").text("Defense: " + HydraDefense); 
+        $("#EnemyMana").text("Mana: " + HydraMP); 
+        $("#EnemySpeed").text("Speed: " + HydraSpeed); 
 
         if(HydraHP === 0) {
             $("#HydraInfoImg").css("visibility", "hidden");
             $("#HydraImg").css("visibility", "hidden");
             $("#EnemyHealth").text(""); 
+            $("#EnemyAttack").text("");  
+            $("#EnemyDefense").text(""); 
+            $("#EnemyMana").text("");  
+            $("#EnemySpeed").text(""); 
         }
     }
 
-    if(moveingUpDown >= 55) {
+    if(moveingUpDown >= 35 && currentMaps === "Map 1") {
         darkElfHP = darkElfHP - (Attack - darkElfDefense);
         if(darkElfHP < 0) {
             darkElfHP = 0;
         }
         $("#EnemyHealth").text("Health: " + darkElfHP); 
+        $("#EnemyAttack").text("Attack: " + darkElfAttack); 
+        $("#EnemyDefense").text("Defense: " + darkElfDefense); 
+        $("#EnemyMana").text("Mana: " + darkElfMP); 
+        $("#EnemySpeed").text("Speed: " + darkElfSpeed); 
 
         if(darkElfHP === 0) {
             $("#ElfInfoImg").css("visibility", "hidden");
             $("#ElfImg").css("visibility", "hidden");
             $("#EnemyHealth").text(""); 
+            $("#EnemyAttack").text("");  
+            $("#EnemyDefense").text(""); 
+            $("#EnemyMana").text("");  
+            $("#EnemySpeed").text(""); 
+        }
+    }
+
+    if(moveingUpDown <= 45 && currentMaps === "Stage 2 Map 3") {
+        VanHP = VanHP - (Attack - VanDefense);
+        if(VanHP < 0) {
+            VanHP = 0;
+        }
+        
+        $("#EnemyHealth").text("Health: " + VanHP); 
+        $("#EnemyAttack").text("Attack: " + VanAttack); 
+        $("#EnemyDefense").text("Defense: " + VanDefense); 
+        $("#EnemyMana").text("Mana: " + VanMP); 
+        $("#EnemySpeed").text("Speed: " + VanSpeed); 
+
+        if(VanHP === 0) {
+            $("#VanInfoImg").css("visibility", "hidden");
+            $("#VanImg").css("visibility", "hidden");
+            $("#EnemyHealth").text(""); 
+            $("#EnemyAttack").text("");  
+            $("#EnemyDefense").text(""); 
+            $("#EnemyMana").text("");  
+            $("#EnemySpeed").text(""); 
         }
     }
     
 }
+
+function walk() {
+    audio = new Audio('Sounds/footsteps-1.mp3');
+    audio.play();
+    
+    stopWalking = setTimeout(stopIt, 1000);
+}
+
+function stopIt() {
+    console.log("work");
+    audio.pause();
+}
+/*
+function stopAttack() {
+    attackAudio.pause();
+    
+}
+
+function stopEquiping() {
+    itemAudio.pause();
+    
+} */
