@@ -1215,11 +1215,11 @@ function moveImageUp() {
             $("#RSword").css("visibility", "hidden");
             Attack = 22;
             royalSword = 1;
-            /*
-            itemAudio = new Audio('Sounds/');
+            
+            itemAudio = new Audio('Sounds/equp.wav');
             itemAudio.play();
-            stopItemSound = setTimeout(stopEquiping, 1000);
-            */
+            stopItemSound = setTimeout(stopEquiping, 700);
+            
             showStats();
         }
     }
@@ -1724,12 +1724,12 @@ function battle(moveingLeftRight) {
 }
 
 function AttackEnemy() {
-    /*
-    attackAudio = new Audio('Sounds/');
+    
+    attackAudio = new Audio('Sounds/cut.wav');
     attackAudio.play();
     
-    stopAttacking = setTimeout(stopAttack, 1000);
-    */
+    stopAttacking = setTimeout(stopAttack, 700);
+    
     if(moveingLeftRight === 70 && currentMaps === "Map 1") {
         slimeHP = slimeHP - (Attack - slimeDefense);
         if(slimeHP < 0) {
@@ -1828,14 +1828,14 @@ function walk() {
     audio = new Audio('Sounds/footsteps-1.mp3');
     audio.play();
     
-    stopWalking = setTimeout(stopIt, 1000);
+    stopWalking = setTimeout(stopIt, 700);
 }
 
 function stopIt() {
     console.log("work");
     audio.pause();
 }
-/*
+
 function stopAttack() {
     attackAudio.pause();
     
@@ -1844,4 +1844,4 @@ function stopAttack() {
 function stopEquiping() {
     itemAudio.pause();
     
-} */
+} 
